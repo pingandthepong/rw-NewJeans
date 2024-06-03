@@ -205,17 +205,18 @@
     background: #000;
   }
 }
+
 /* 일반 pc */
 @media screen and (max-width: 1280px) {
   #content {
     & section {
       & .section_wrap {
         & .photos {
-          height: calc(600px * 0.9);
+          height: calc(600px * 0.75);
 
           & li {
-            width: calc(365px * 0.9);
-            height: calc(487px * 0.9);
+            width: calc(365px * 0.75);
+            height: calc(487px * 0.75);
           }
         }
       }
@@ -229,15 +230,15 @@
     & section {
       & .section_wrap {
         & .photos {
-          height: calc(600px * 0.73);
+          height: calc(600px * 0.5);
 
           & li {
-            width: calc(365px * 0.73);
-            height: calc(487px * 0.73);
+            width: calc(365px * 0.5);
+            height: calc(487px * 0.5);
           }
         }
         & .description {
-          font-size: 1.5vw;
+          font-size: 1.8vw;
         }
       }
     }
@@ -248,17 +249,92 @@
 @media screen and (max-width: 768px) {
   #content {
     & section {
+      width: 95%;
+      left: 50%;
+      transform: translateX(-50%);
+
       & .section_wrap {
+        margin: 150px auto;
+
+        grid-template-columns: 1fr 0.5fr;
+        grid-template-rows: 1fr 3.2fr;
+        grid-template-areas:
+          "photos name"
+          "photos description";
+        gap: 20px;
+
+        & .name {
+          text-align: center;
+        }
+
+        & .description {
+          grid-template-columns: 30% 70%;
+          font-size: 2vw;
+        }
+
         & .photos {
-          height: calc(600px * 0.55);
+          /* height: calc(600px * 0.4); */
+          height: auto;
 
           & li {
-            width: calc(365px * 0.55);
-            height: calc(487px * 0.55);
+            width: calc(365px * 0.45);
+            height: calc(487px * 0.45);
+            border-radius: 16px;
+
+            &:nth-of-type(1) {
+              left: 50%;
+              top: 0;
+              transform: translate(-120%, -20%) rotate(0deg) scale(1);
+              transform-origin: 50% 50%;
+
+              &:hover {
+                transform: translate(-120%, -20%) rotate(0deg) scale(1.1);
+              }
+            }
+            &:nth-of-type(2) {
+              left: 50%;
+              top: 0;
+              transform: translate(-85%, -10%) rotate(0deg) scale(1);
+              transform-origin: 50% 50%;
+
+              &:hover {
+                transform: translate(-85%, -10%) rotate(0deg) scale(1.1);
+              }
+            }
+            &:nth-of-type(3) {
+              left: 50%;
+              top: 0;
+              transform: translate(-50%, 0%) rotate(0) scale(1);
+
+              &:hover {
+                transform: translate(-50%, 0) rotate(0) scale(1.1);
+              }
+            }
+            &:nth-of-type(4) {
+              left: 50%;
+              top: 0;
+              transform: translate(-15%, 10%) rotate(0deg) scale(1);
+              transform-origin: 50% 50%;
+
+              &:hover {
+                transform: translate(-15%, 10%) rotate(0deg) scale(1.1);
+              }
+            }
+            &:nth-of-type(5) {
+              left: 50%;
+              top: 0;
+              transform: translate(20%, 20%) rotate(0deg) scale(1);
+              transform-origin: 50% 50%;
+
+              &:hover {
+                transform: translate(20%, 20%) rotate(0deg) scale(1.1);
+              }
+            }
           }
-        }
-        & .description {
-          font-size: 2vw;
+
+          & img {
+            border-radius: 4px;
+          }
         }
       }
     }
@@ -267,4 +343,114 @@
 
 /* 모바일 */
 @media screen and (max-width: 640px) {
+  #content {
+    & section {
+      & .section_wrap {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 6fr 2fr;
+        grid-template-areas:
+          "name"
+          "photos"
+          "description";
+
+        & .description {
+          grid-template-columns: 45% 55%;
+          font-size: 2.5vw;
+        }
+
+        & .photos {
+          height: auto;
+
+          & li {
+            width: calc(365px * 0.5);
+            height: calc(487px * 0.5);
+            border-radius: 16px;
+
+            &:nth-of-type(1) {
+              left: 50%;
+              top: 0;
+              transform: translate(-120%, 0) rotate(0deg) scale(1);
+              transform-origin: 50% 50%;
+
+              &:hover {
+                transform: translate(-120%, 0) rotate(0deg) scale(1.1);
+              }
+            }
+            &:nth-of-type(2) {
+              left: 50%;
+              top: 0;
+              transform: translate(-85%, 0) rotate(0deg) scale(1);
+              transform-origin: 50% 50%;
+
+              &:hover {
+                transform: translate(-85%, 0) rotate(0deg) scale(1.1);
+              }
+            }
+            &:nth-of-type(3) {
+              left: 50%;
+              top: 0;
+              transform: translate(-50%, 0) rotate(0) scale(1);
+
+              &:hover {
+                transform: translate(-50%, 0) rotate(0) scale(1.1);
+              }
+            }
+            &:nth-of-type(4) {
+              left: 50%;
+              top: 0;
+              transform: translate(-15%, 0) rotate(0deg) scale(1);
+              transform-origin: 50% 50%;
+
+              &:hover {
+                transform: translate(-15%, 0) rotate(0deg) scale(1.1);
+              }
+            }
+            &:nth-of-type(5) {
+              left: 50%;
+              top: 0;
+              transform: translate(20%, 0) rotate(0deg) scale(1);
+              transform-origin: 50% 50%;
+
+              &:hover {
+                transform: translate(20%, 0) rotate(0deg) scale(1.1);
+              }
+            }
+          }
+
+          & img {
+            border-radius: 4px;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* 최소 사이즈 처리 */
+@media screen and (max-width: 480px) {
+  #wrap {
+    min-width: 320px;
+
+    #content {
+      & section {
+        & .section_wrap {
+          grid-template-rows: 1fr 5fr 2fr;
+
+          & .name {
+            font-size: 9vw;
+          }
+
+          & .description {
+            font-size: 3vw;
+          }
+
+          & .photos {
+            & li {
+              border-radius: 8px;
+            }
+          }
+        }
+      }
+    }
+  }
 }
