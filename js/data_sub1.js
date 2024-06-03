@@ -51,6 +51,12 @@ xhr.onload = function () {
       sub1ConBg.style.position = "fixed";
       sub1ConBg.style.left = 0;
       sub1ConBg.style.top = -100 + "px";
+
+      let winWidth = window.innerWidth;
+
+      if (winWidth <= 640) {
+        sub1ConBg.style.top = -25 + "px";
+      }
     } else {
       sub1ConBg.style.position = "static";
     }
