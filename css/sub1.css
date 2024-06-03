@@ -362,8 +362,8 @@
           height: auto;
 
           & li {
-            width: calc(365px * 0.5);
-            height: calc(487px * 0.5);
+            width: calc(365px * 0.475);
+            height: calc(487px * 0.475);
             border-radius: 16px;
 
             &:nth-of-type(1) {
