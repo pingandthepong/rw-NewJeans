@@ -1,0 +1,44 @@
+{
+  "memberInfo": [
+    {
+      "name": "minji",
+      "fname": "Kim Minji",
+      "kname": "민지",
+      "bday": "2004.05.07",
+      "mbti": "ENFP",
+      "position": "Leader, Sub Vocalist, Sub Rapper"
+    },
+    {
+      "name": "hanni",
+      "fname": "Pham Ngoc Han",
+      "kname": "하니",
+      "bday": "2004.10.06",
+      "mbti": "INFP",
+      "position": "Main Dancer, Lead Vocalist"
+    },
+    {
+      "name": "danielle",
+      "fname": "Mo Ji Hye",
+      "kname": "다니엘",
+      "bday": "2005.04.11",
+      "mbti": "ENFP",
+      "position": "Lead Vocalist, Lead Dancer"
+    },
+    {
+      "name": "haerin",
+      "fname": "Kang Haerin",
+      "kname": "해린",
+      "bday": "2006.05.15",
+      "mbti": "ISTP",
+      "position": "Sub Vocalist, Sub Dancer"
+    },
+    {
+      "name": "hyein",
+      "fname": "Lee Hyein",
+      "kname": "혜인",
+      "bday": "2008.04.21",
+      "mbti": "INFP",
+      "position": "Main Rapper, Sub Vocalist"
+    }
+  ]
+}

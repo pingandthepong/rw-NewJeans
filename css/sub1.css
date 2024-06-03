@@ -1,0 +1,278 @@
+:root {
+  --main: #ff5b1e;
+  --sub: #3b73fe;
+  --point1: #77ed70;
+  --point2: #b0acf6;
+  --font: #010101;
+  --titleFont: "aAbstractGroovy", sans-serif;
+  --contentFont: "Noto Sans KR", sans-serif;
+  --shiny: 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 30px #ffd700,
+    0 0 40px #ff8c00, 0 0 50px #ff8c00, 0 0 60px #ff4500, 0 0 70px #ff4500;
+  --shinySmall: 0 0 10px #ffffff, 0 0 20px #eae7d4, 0 0 30px #ffef94,
+    0 0 40px #ffc47b;
+}
+
+/* 와이드 pc  */
+#imgBG {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+#content {
+  & .img_wrap {
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 20%);
+
+    & .sub1_content_bg {
+      width: 100%;
+    }
+  }
+
+  section {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #fff;
+
+    & .section_wrap {
+      margin: 200px auto;
+
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 3.2fr 1fr;
+      grid-template-areas:
+        "photos photos"
+        "name description";
+      row-gap: 50px;
+
+      & .name {
+        font-size: 6vw;
+        letter-spacing: 0.2rem;
+        grid-area: name;
+        text-align: right;
+        text-shadow: 2px 2px 1px var(--main);
+      }
+
+      & .description {
+        font-family: var(--contentFont);
+        font-size: 1.3vw;
+        grid-area: description;
+        display: grid;
+        grid-template-columns: 20% 80%;
+        grid-template-areas:
+          "dt1 dd1"
+          "dt2 dd2"
+          "dt3 dd3"
+          "dt4 dd4"
+          "dt5 dd5";
+        column-gap: 16px;
+
+        & dt {
+          font-weight: 700;
+          text-align: right;
+
+          &:nth-of-type(1) {
+            grid-area: dt1;
+          }
+          &:nth-of-type(2) {
+            grid-area: dt2;
+          }
+          &:nth-of-type(3) {
+            grid-area: dt3;
+          }
+          &:nth-of-type(4) {
+            grid-area: dt4;
+          }
+          &:nth-of-type(5) {
+            grid-area: dt5;
+          }
+        }
+        & dd {
+          font-weight: 300;
+
+          &:nth-of-type(1) {
+            grid-area: dd1;
+          }
+          &:nth-of-type(2) {
+            grid-area: dd2;
+          }
+          &:nth-of-type(3) {
+            grid-area: dd3;
+          }
+          &:nth-of-type(4) {
+            grid-area: dd4;
+          }
+          &:nth-of-type(5) {
+            grid-area: dd5;
+          }
+        }
+      }
+
+      & .photos {
+        height: 600px;
+        position: relative;
+        grid-area: photos;
+
+        & li {
+          width: 365px;
+          height: 487px;
+          overflow: hidden;
+          box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, 0.5);
+          position: absolute;
+          border-radius: 30px;
+          overflow: hidden;
+          transition: all 0.35s ease-out;
+
+          &::before {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: #fff url("../images/logo/logo3.svg");
+            position: absolute;
+            left: 0;
+            top: 0;
+          }
+
+          &:hover {
+            z-index: 10;
+            box-shadow: var(--shinySmall);
+          }
+
+          &:nth-of-type(1) {
+            left: 50%;
+            top: 0;
+            transform: translate(-170%, 0) rotate(-30deg) scale(1);
+            transform-origin: 100% 50%;
+
+            &:hover {
+              transform: translate(-170%, -20%) rotate(-30deg) scale(1.1);
+            }
+          }
+          &:nth-of-type(2) {
+            left: 50%;
+            top: 0;
+            transform: translate(-120%, 0) rotate(-15deg) scale(1);
+            transform-origin: 100% 50%;
+
+            &:hover {
+              transform: translate(-120%, -20%) rotate(-15deg) scale(1.1);
+            }
+          }
+          &:nth-of-type(3) {
+            left: 50%;
+            top: 0;
+            transform: translate(-50%, 0) rotate(0) scale(1);
+
+            &:hover {
+              transform: translate(-50%, -20%) rotate(0) scale(1.1);
+            }
+          }
+          &:nth-of-type(4) {
+            left: 50%;
+            top: 0;
+            transform: translate(20%, 0) rotate(15deg) scale(1);
+            transform-origin: 0 50%;
+
+            &:hover {
+              transform: translate(20%, -20%) rotate(15deg) scale(1.1);
+            }
+          }
+          &:nth-of-type(5) {
+            left: 50%;
+            top: 0;
+            transform: translate(70%, 0) rotate(30deg) scale(1);
+            transform-origin: 0 50%;
+
+            &:hover {
+              transform: translate(70%, -20%) rotate(30deg) scale(1.1);
+            }
+          }
+
+          & img {
+            width: 90%;
+            height: 80%;
+            object-fit: cover;
+            border-radius: 8px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -55%);
+          }
+        }
+      }
+    }
+  }
+}
+
+#footerArea {
+  &::before {
+    background: #000;
+  }
+}
+/* 일반 pc */
+@media screen and (max-width: 1280px) {
+  #content {
+    & section {
+      & .section_wrap {
+        & .photos {
+          height: calc(600px * 0.9);
+
+          & li {
+            width: calc(365px * 0.9);
+            height: calc(487px * 0.9);
+          }
+        }
+      }
+    }
+  }
+}
+
+/* 테블릿 */
+@media screen and (max-width: 1024px) {
+  #content {
+    & section {
+      & .section_wrap {
+        & .photos {
+          height: calc(600px * 0.73);
+
+          & li {
+            width: calc(365px * 0.73);
+            height: calc(487px * 0.73);
+          }
+        }
+        & .description {
+          font-size: 1.5vw;
+        }
+      }
+    }
+  }
+}
+
+/* 소형 테블릿 */
+@media screen and (max-width: 768px) {
+  #content {
+    & section {
+      & .section_wrap {
+        & .photos {
+          height: calc(600px * 0.55);
+
+          & li {
+            width: calc(365px * 0.55);
+            height: calc(487px * 0.55);
+          }
+        }
+        & .description {
+          font-size: 2vw;
+        }
+      }
+    }
+  }
+}
+
+/* 모바일 */
+@media screen and (max-width: 640px) {
+}

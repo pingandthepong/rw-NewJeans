@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- DONE: 아이폰 자동 링크 막기 -->
+    <meta name="format-detection" content="telephone=no" />
+    <title>NewJeans</title>
+    <!-- DONE: favicon 삽입 -->
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" />
+    <link rel="apple-touch-icon-precomposed" href="./app_icon.png" />
+    <link rel="apple-touch-startup-image" href="./startup.png" />
+
+    <!-- TODO: 기타 css 연결 파일 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="./css/toastui-calendar.min.css" />
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/layout.css" />
+
+    <!-- DONE: prefix -->
+    <script src="./js/prefixfree.min.js"></script>
+    <!-- DONE: fontawesome 삽입 -->
+    <script
+      src="https://kit.fontawesome.com/5c48cfd0d4.js"
+      crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div id="skipNav">
+      <a href="#content">본문바로가기</a>
+      <a href="#gnb">네비게이션바로가기</a>
+    </div>
+
+    <div id="wrap">
+      <div class="videoBox">
+        <video autoplay loop muted id="videoBG"></video>
+        <img src="./images/mainimages/visual/back.jpg" id="imgBG" alt="" />
+        <a href="#" class="down"></a>
+      </div>
+
+      <header id="headerArea">
+        <div class="headerInner">
+          <div class="header_top">
+            <h1><a href="./index.html">NewJeans 로고</a></h1>
+            <a href="#" class="menuOpen menu_ham">
+              <span>메뉴열기</span>
+            </a>
+          </div>
+          <nav id="gnb">
+            <h2 class="hidden">글로벌네이게이션영역</h2>
+            <ul class="mainMenu">
+              <li>
+                <h3>
+                  <a href="./sub1.html?num=1"
+                    ><span class="menu_icon"></span
+                    ><span class="txt">member</span></a
+                  >
+                </h3>
+              </li>
+              <li>
+                <h3>
+                  <a href="./sub2.html?num=2"
+                    ><span class="menu_icon"></span
+                    ><span class="txt">new</span></a
+                  >
+                </h3>
+              </li>
+              <li>
+                <h3>
+                  <a href="./sub3.html?num=3"
+                    ><span class="menu_icon"></span
+                    ><span class="txt">albums</span></a
+                  >
+                </h3>
+              </li>
+              <li>
+                <h3>
+                  <a href="./sub4.html?num=4"
+                    ><span class="menu_icon"></span
+                    ><span class="txt">schedule</span></a
+                  >
+                </h3>
+              </li>
+              <li>
+                <h3>
+                  <a href="./sub5.html?num=5"
+                    ><span class="menu_icon"></span
+                    ><span class="txt">gallery</span></a
+                  >
+                </h3>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <article id="content">
+        <h2 class="hidden">본문콘텐츠영역</h2>
+
+        <!-- .member -->
+        <section class="member">
+          <h3>member</h3>
+          <div class="description">
+            <p class="sub_title">
+              <span class="group_name">NewJeans</span> = Jeans + New Generation
+            </p>
+            <p class="sub_des">
+              시대를 초월한 이미지 + 새로운 세대의 팝 음악을 선도하는 그룹을
+              가리키는 "new genes"의 말장난
+            </p>
+          </div>
+          <ul class="member_list">
+            <li>
+              <div class="img_wrap">
+                <img
+                  src="./images/mainimages/member/member_minji.jpg"
+                  alt="민지 사진" />
+              </div>
+              <div class="txt_wrap">
+                <p class="name">minji</p>
+                <p class="b_day">2004.05.07 (20세)</p>
+              </div>
+            </li>
+            <li>
+              <div class="img_wrap">
+                <img
+                  src="./images/mainimages/member/member_hanni.jpg"
+                  alt="하니 사진" />
+              </div>
+              <div class="txt_wrap">
+                <p class="name">hanni</p>
+                <p class="b_day">2004.10.06 (19세)</p>
+              </div>
+            </li>
+          </ul>
+          <ul class="member_list">
+            <li>
+              <div class="img_wrap">
+                <img
+                  src="./images/mainimages/member/member_daniel.jpg"
+                  alt="다니엘 사진" />
+              </div>
+              <div class="txt_wrap">
+                <p class="name">daniel</p>
+                <p class="b_day">2005.04.11 (19세)</p>
+              </div>
+            </li>
+            <li>
+              <div class="img_wrap">
+                <img
+                  src="./images/mainimages/member/member_haerin.jpg"
+                  alt="해린 사진" />
+              </div>
+              <div class="txt_wrap">
+                <p class="name">haerin</p>
+                <p class="b_day">2006.05.15 (18세)</p>
+              </div>
+            </li>
+            <li>
+              <div class="img_wrap">
+                <img
+                  src="./images/mainimages/member/member_hyein.jpg"
+                  alt="혜인 사진" />
+              </div>
+              <div class="txt_wrap">
+                <p class="name">hyein</p>
+                <p class="b_day">2008.04.21 (16세)</p>
+              </div>
+            </li>
+          </ul>
+          <a href="./sub1.html?num=1" class="more_link"
+            >more <img src="./images/mainimages/more.png" alt=""
+          /></a>
+        </section>
+
+        <!-- .new -->
+        <section class="new">
+          <h3>new</h3>
+          <div class="title_wrap">
+            <p class="title">HOW SWEET</p>
+            <p class="date">2024.05.24 13:00 발매</p>
+          </div>
+          <div class="music_wrap">
+            <div class="visualizer-container"></div>
+            <ul class="visual_virtualEl">
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+            <audio class="new_audio" loop>
+              <source src="./files/NJ_NEW_music.mp3" type="audio/mpeg" />
+              <source src="./files/NJ_NEW_music.ogg" type="audio/ogg" />
+              브라우저가 오디오 태그를 지원하지 않습니다.
+            </audio>
+            <div class="btn_wrap">
+              <a href="#" id="backward"
+                ><i class="fa-solid fa-backward-step"></i
+              ></a>
+              <a href="#" id="playBtn"><i class="fa-solid fa-play"></i></a>
+              <a href="#" id="forward"
+                ><i class="fa-solid fa-forward-step"></i
+              ></a>
+            </div>
+          </div>
+          <div class="countdown_wrap">
+            <h4>countdown</h4>
+            <p class="des">
+              가상의 날짜 2025년 5월 24일 13:00로 설정하였습니다.
+            </p>
+            <p class="countdown">00:00:00:00</p>
+          </div>
+          <img
+            src="./images/mainimages/visual/rabbit_white.png"
+            class="rabbit_right"
+            alt="" />
+          <img
+            src="./images/mainimages/visual/rabbit_white.png"
+            class="rabbit_left"
+            alt="" />
+          <a href="./sub2.html?num=2" class="more_link"
+            >more <img src="./images/mainimages/more.png" alt=""
+          /></a>
+        </section>
+        <section class="new_photos">
+          <div class="new_photos_wrap">
+            <ul class="new_photos_1">
+              <li>
+                <img
+                  src="./images/mainimages/new/new_photo_1.jpg"
+                  alt="뉴진스 사진" />
+              </li>
+              <li>
+                <img
+                  src="./images/mainimages/new/new_photo_2.jpg"
+                  alt="뉴진스 사진" />
+              </li>
+            </ul>
+            <ul class="new_photos_2">
+              <li>
+                <img
+                  src="./images/mainimages/new/new_photo_3.jpg"
+                  alt="뉴진스 사진" />
+              </li>
+              <li>
+                <img
+                  src="./images/mainimages/new/new_photo_4.jpg"
+                  alt="뉴진스 사진" />
+              </li>
+              <li>
+                <img
+                  src="./images/mainimages/new/new_photo_5.jpg"
+                  alt="뉴진스 사진" />
+              </li>
+            </ul>
+            <ul class="new_photos_3">
+              <li>
+                <img
+                  src="./images/mainimages/new/new_photo_6.jpg"
+                  alt="뉴진스 사진" />
+              </li>
+              <li>
+                <img
+                  src="./images/mainimages/new/new_photo_7.jpg"
+                  alt="뉴진스 사진" />
+              </li>
+              <li>
+                <img
+                  src="./images/mainimages/new/new_photo_8.jpg"
+                  alt="뉴진스 사진" />
+              </li>
+            </ul>
+            <ul class="new_photos_4">
+              <li>
+                <img
+                  src="./images/mainimages/new/new_photo_9.jpg"
+                  alt="뉴진스 사진" />
+              </li>
+              <li>
+                <img
+                  src="./images/mainimages/new/new_photo_10.jpg"
+                  alt="뉴진스 사진" />
+              </li>
+            </ul>
+            <ul class="new_photos_5">
+              <li>
+                <img
+                  src="./images/mainimages/new/new_photo_11.jpg"
+                  alt="뉴진스 사진" />
+              </li>
+            </ul>
+          </div>
+          <a href="./sub2.html?num=2" class="more_link"
+            >more <img src="./images/mainimages/more.png" alt=""
+          /></a>
+        </section>
+
+        <!-- .albums -->
+        <section class="albums">
+          <h3>albums</h3>
+          <div class="description">
+            <p class="sub_des">
+              데뷔 이후 짧은 시간 안에 다양한 앨범을 통해 자신들만의 색깔을
+              확립하며, 국내외 팬들 사이에서 큰 인기를 끌고 있는 뉴진스의 음악적
+              실험과 혁신적인 비주얼을 감상하세요!
+            </p>
+          </div>
+          <ul class="albums_grid">
+            <li>
+              <img src="./images/mainimages/albums/Item-1.jpg" alt="" />
+              <dl>
+                <dt>NewJeans</dt>
+                <dd>2022.07.22</dd>
+              </dl>
+            </li>
+            <li>
+              <img src="./images/mainimages/albums/Item-2.jpg" alt="" />
+              <dl>
+                <dt>1st EP 'New Jeans'</dt>
+                <dd>2022.08.01</dd>
+              </dl>
+            </li>
+            <li>
+              <img src="./images/mainimages/albums/Item-3.jpg" alt="" />
+              <dl>
+                <dt>'OMG'</dt>
+                <dd>2023.01.02</dd>
+              </dl>
+            </li>
+            <li>
+              <img src="./images/mainimages/albums/Item-4.jpg" alt="" />
+              <dl>
+                <dt>Zero</dt>
+                <dd>2023.04.03</dd>
+              </dl>
+            </li>
+            <li>
+              <img src="./images/mainimages/albums/Item-5.jpg" alt="" />
+              <dl>
+                <dt>2nd EP 'Get Up'</dt>
+                <dd>2023.07.21</dd>
+              </dl>
+            </li>
+            <li>
+              <img src="./images/mainimages/albums/Item-6.jpg" alt="" />
+              <dl>
+                <dt>NJWMX</dt>
+                <dd>2023.12.19</dd>
+              </dl>
+            </li>
+            <li>
+              <img src="./images/mainimages/albums/Item-7.jpg" alt="" />
+              <dl>
+                <dt>How Sweet</dt>
+                <dd>2024.05.24</dd>
+              </dl>
+            </li>
+            <li>
+              <img src="./images/mainimages/albums/Item-8.jpg" alt="" />
+            </li>
+          </ul>
+          <a href="./sub3.html?num=3" class="more_link"
+            >more <img src="./images/mainimages/more.png" alt=""
+          /></a>
+        </section>
+
+        <!-- .schedule -->
+        <section class="schedule">
+          <h3>schedule</h3>
+          <div class="description">
+            <p class="sub_des">뉴진스의 최신 공개스케줄을 확인하세요!</p>
+          </div>
+          <div class="calendar_wrap">
+            <div id="calendar-month-title"></div>
+            <div class="button_wrap">
+              <button onclick="movePrev()">
+                <span class="hidden">이전 달</span>
+                <i class="fa-solid fa-chevron-left"></i>
+              </button>
+              <button onclick="moveNext()">
+                <span class="hidden">다음 달</span>
+                <i class="fa-solid fa-chevron-right"></i>
+              </button>
+            </div>
+            <div id="calendar"></div>
+          </div>
+          <div class="today_wrap">
+            <p class="today"></p>
+            <p class="today_schedule">Schedule 1</p>
+          </div>
+          <a href="./sub4.html?num=4" class="more_link"
+            >more <img src="./images/mainimages/more.png" alt=""
+          /></a>
+        </section>
+
+        <!-- .gallery -->
+        <section class="gallery">
+          <h3>gallery</h3>
+          <div class="description">
+            <p class="sub_des">뉴진스의 최신 사진을 확인하세요!</p>
+          </div>
+          <ul class="gallery_wrap">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+          <a href="./sub5.html?num=5" class="more_link"
+            >more <img src="./images/mainimages/more.png" alt=""
+          /></a>
+        </section>
+      </article>
+
+      <footer id="footerArea">
+        <a href="#" class="move_top">
+          <img src="./images/mainimages/move_top.png" alt="" />
+          <span class="hidden">TOP 버튼</span>
+        </a>
+
+        <div class="footer__container">
+          <a href="#" class="logo_footer">newjeans</a>
+          <div class="footer_txt_wrap">
+            <ul class="sns">
+              <li>
+                <a href="#" target="_blank" title="뉴진스 유튜브 새창열림"
+                  ><span class="hidden">youtube</span
+                  ><i class="fa-brands fa-youtube" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#" target="_blank" title="뉴진스 X 새창열림"
+                  ><span class="hidden">X(구 트위터)</span
+                  ><i class="fa-brands fab fa-twitter" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#" target="_blank" title="뉴진스 인스타그램 새창열림"
+                  ><span class="hidden">인스타그램</span
+                  ><i
+                    class="fa-brands fab fab fa-instagram"
+                    aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#" target="_blank" title="뉴진스 페이스북 새창열림"
+                  ><span class="hidden">페이스북</span
+                  ><i
+                    class="fa-brands fab fa-facebook-square"
+                    aria-hidden="true"></i>
+                </a>
+              </li>
+            </ul>
+            <address>
+              <p>
+                ADOR Co., Ltd. 16th floor, Hangang-daero 42, Yongsan-gu, Seoul,
+                Republic of Korea
+              </p>
+            </address>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- script 삽입 -->
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script src="./js/jquery-migrate-1.4.1.min.js"></script>
+    <script src="./js/swiper.min.js"></script>
+    <script src="./js/header.js"></script>
+    <script src="./js/video.js"></script>
+    <script src="./js/menu_ham.js"></script>
+    <script src="./js/memberList.js"></script>
+    <script src="./js/newPlay.js"></script>
+    <script src="./js/newCountdown.js"></script>
+    <script src="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.js"></script>
+    <script type="module" src="./js/scheduleCalendar.js"></script>
+    <script src="./js/gallery.js"></script>
+    <script src="./js/mobildGallery.js"></script>
+    <script src="./js/footer.js"></script>
+    <script src="./js/smTabAlbums.js"></script>
+    <script src="./js/cursor.js"></script>
+  </body>
+</html>
