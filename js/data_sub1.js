@@ -43,12 +43,10 @@ xhr.onload = function () {
   const sectionWraps = document.querySelectorAll(".section_wrap");
 
   // DONE: .img_wrap의 높이를 section 전체의 높이에 맞추기
-  imgWrap.style.height = allSection.clientHeight + 50 + "px";
-
   // DONE: section이 scrollTop에 딱 걸리면, .img_wrap이 position:fixed로 변하기
-  window.addEventListener("scroll", () => {
+  function sub1Fixed() {
+    imgWrap.style.height = allSection.clientHeight + "px";
     let scroll = window.scrollY;
-
     if (scroll >= sub1ContentHeight) {
       sub1ConBg.style.position = "fixed";
       sub1ConBg.style.left = 0;
@@ -56,7 +54,10 @@ xhr.onload = function () {
     } else {
       sub1ConBg.style.position = "static";
     }
-  });
+  }
+
+  window.addEventListener("scroll", sub1Fixed);
+  window.addEventListener("resize", sub1Fixed);
 
   // DONE: .name split & hover
   let mnames = document.querySelectorAll(".name"); // NodeList 반환
