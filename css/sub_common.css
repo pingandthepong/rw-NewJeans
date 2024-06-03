@@ -37,3 +37,13 @@
     position: relative;
   }
 }
+
+/* 소형 태블릿 */
+@media screen and (max-width: 768px) {
+  #content {
+    & h2.subTitle {
+      font-size: 14vw;
+      letter-spacing: 0;
+    }
+  }
+}
