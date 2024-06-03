@@ -434,7 +434,7 @@
     #content {
       & section {
         & .section_wrap {
-          grid-template-rows: 1fr 6fr 3fr;
+          grid-template-rows: 1fr 5.5fr 3fr;
 
           & .name {
             font-size: 9vw;
