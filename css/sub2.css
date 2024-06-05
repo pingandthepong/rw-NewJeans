@@ -106,7 +106,8 @@
                 content: url("../images/sub2/btn_share.png");
               }
             }
-            &#likeBtn {
+
+            &.btn_like {
               &::before {
                 content: "\f004";
                 color: #000;
@@ -116,7 +117,7 @@
                 display: block;
                 width: 42px;
                 height: 42px;
-                font-size: 1.3rem;
+                font-size: 1.25rem;
                 border: 1px solid rgba(255, 255, 255, 0.1);
                 border-radius: 50%;
                 display: flex;
@@ -124,8 +125,7 @@
                 align-items: center;
               }
 
-              &.check::before,
-              &:hover::before {
+              &.checked::before {
                 color: var(--main);
                 -webkit-text-stroke: 2px var(--main);
               }
