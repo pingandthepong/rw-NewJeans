@@ -1,0 +1,190 @@
+:root {
+  --main: #ff5b1e;
+  --sub: #3b73fe;
+  --point1: #77ed70;
+  --point2: #b0acf6;
+  --font: #010101;
+  --titleFont: "aAbstractGroovy", sans-serif;
+  --contentFont: "Noto Sans KR", sans-serif;
+  --shiny: 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 30px #ffd700,
+    0 0 40px #ff8c00, 0 0 50px #ff8c00, 0 0 60px #ff4500, 0 0 70px #ff4500;
+  --shinySmall: 0 0 10px #ffffff, 0 0 20px #eae7d4, 0 0 30px #ffef94,
+    0 0 40px #ffc47b;
+  --custom-gray: #999;
+  --custom-gray-dark: #666;
+}
+
+/* 와이드pc */
+#content {
+  background: #000;
+  color: #fff;
+  padding: 100px 0;
+
+  section {
+    width: 1275px;
+    margin: 0 auto;
+  }
+
+  section.intro {
+    .info {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      gap: 80px;
+      padding-bottom: 50px;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+      font-family: var(--contentFont);
+
+      .txt_wrap {
+        dl {
+          dt {
+            display: none;
+          }
+          dd {
+            color: var(--custom-gray);
+            font-size: 15px;
+
+            &:not(:first-of-type) {
+              margin-bottom: 44px;
+            }
+          }
+          .title {
+            font-size: 72px;
+            color: transparent;
+            -webkit-text-stroke: 2px #fff;
+            font-family: var(--titleFont);
+          }
+          .artist {
+            font-size: 20px;
+            color: #fff;
+          }
+          .desc {
+            font-weight: 300;
+
+            & .more {
+              display: inline-block;
+              color: var(--custom-gray-dark);
+            }
+          }
+        }
+
+        .btn_wraps {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          button {
+            background: none;
+
+            &:hover {
+              cursor: pointer;
+            }
+
+            &.btn_long {
+              padding: 12px 25px;
+              font-size: 15px;
+              border-radius: 4px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              gap: 8px;
+              color: #fff;
+            }
+
+            &#fullPlay {
+              background: var(--main);
+
+              &::before {
+                content: url("../images/sub2/btn_play.png");
+                display: block;
+              }
+            }
+            &#share {
+              background: #2a2a2a;
+
+              &::before {
+                content: url("../images/sub2/btn_share.png");
+              }
+            }
+            &#likeBtn {
+              &::before {
+                content: "\f004";
+                color: #000;
+                -webkit-text-stroke: 2px var(--custom-gray);
+                font-family: "Font Awesome 5 Free";
+                font-weight: 900;
+                display: block;
+                width: 42px;
+                height: 42px;
+                font-size: 1.3rem;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              }
+
+              &.check::before,
+              &:hover::before {
+                color: var(--main);
+                -webkit-text-stroke: 2px var(--main);
+              }
+            }
+          }
+        }
+      }
+
+      .jacket_wrap {
+        width: 557px;
+        height: 520px;
+
+        border: 1px solid #fff;
+        box-sizing: border-box;
+
+        &::before {
+          content: "Released May 24, 2024";
+          font-family: var(--contentFont);
+          font-size: 22px;
+          display: block;
+          transform: rotate(-90deg) translateX(100%);
+          transform-origin: 0 0;
+          color: red;
+        }
+        & img {
+          width: 520px;
+        }
+      }
+    }
+
+    .list {
+    }
+
+    .mv {
+    }
+  }
+}
+
+#footerArea {
+  &::before {
+    background: #000;
+  }
+}
+/* 일반pc */
+@media screen and (max-width: 1280px) {
+}
+
+/* 일반 태블릿 */
+@media screen and (max-width: 1024px) {
+}
+
+/* 소형 태블릿 */
+@media screen and (max-width: 768px) {
+}
+
+/* 모바일 */
+@media screen and (max-width: 640px) {
+}
+
+/* 최소 사이즈  처리 */
+@media screen and (max-width: 480px) {
+}

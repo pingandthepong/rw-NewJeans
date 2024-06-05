@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- DONE: 아이폰 자동 링크 막기 -->
-    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="telephone=no" />
     <title>NewJeans - NEW</title>
     <!-- DONE: favicon 삽입 -->
     <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" />
@@ -12,13 +12,13 @@
     <link rel="apple-touch-startup-image" href="./startup.png" />
 
     <!-- TODO: 기타 css 연결 파일 -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap"
-      rel="stylesheet">
-    <link rel="stylesheet" href="./css/common.css">
-    <link rel="stylesheet" href="./css/sub_common.css">
+      rel="stylesheet" />
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/sub_common.css" />
     <link rel="stylesheet" href="./css/sub2.css" />
 
     <!-- DONE: prefix -->
@@ -99,14 +99,122 @@
 
       <article id="content">
         <h2 class="subTitle">new</h2>
-        <section>
-          <h3>내용 콘텐츠1 제목</h3>
+
+        <section class="intro">
+          <h3 class="hidden">HOW SWEET</h3>
+          <div class="info">
+            <div class="txt_wrap">
+              <dl>
+                <dt>곡 제목</dt>
+                <dd class="title">how sweet</dd>
+                <dt>아티스트명</dt>
+                <dd class="artist">NewJeans</dd>
+                <dt>장르</dt>
+                <dd class="genre">댄스 &middot; 4곡 &middot; 13분 58초</dd>
+                <dt>설명</dt>
+                <dd class="desc">
+                  2022년 7월 22일 데뷔한 뉴진스(NewJeans)는 데뷔 EP로 단숨에
+                  국내외 차트를 석권했고, 이어 2023년 발표한 싱글 앨범과 2nd
+                  EP를 통해 글로벌 대세 인기를 증명했다. 전 세계 팬들은 다섯
+                  멤버의 순수하고 자연스러운 매력,...
+                  <a href="#" class="more">더보기</a>
+                </dd>
+              </dl>
+              <div class="btn_wraps">
+                <button type="button" id="fullPlay" class="btn_long">
+                  전체재생
+                </button>
+                <button type="button" id="share" class="btn_long">
+                  공유하기
+                </button>
+                <button type="button" id="likeBtn">
+                  <span class="hidden">좋아요</span>
+                </button>
+              </div>
+            </div>
+            <div class="jacket_wrap">
+              <img
+                src="./images/sub2/new_jacket.jpg"
+                alt="뉴진스 HowSweet & Bubble Gum 앨범 자켓 이미지" />
+            </div>
+          </div>
+          <ol class="list">
+            <li>
+              <a class="title"
+                ><strong>How Sweet</strong><span class="badge">TITLE</span></a
+              >
+              <span class="">NewJeans</span>
+              <div class="sm_list">
+                <button class="mp3"></button>
+                <button class="lyrics"></button>
+                <button class="like"></button>
+              </div>
+            </li>
+            <li>
+              <p class="title">Bubble Gum</p>
+              <p class="artist">NewJeans</p>
+              <ul class="sm_list">
+                <li class="mp3"></li>
+                <li class="lyrics"></li>
+                <li class="like"></li>
+              </ul>
+            </li>
+            <li>
+              <p class="title">How Sweet (Instrumental)</p>
+              <p class="artist">NewJeans</p>
+              <ul class="sm_list">
+                <li class="mp3"></li>
+                <li class="lyrics op0"></li>
+                <li class="like"></li>
+              </ul>
+            </li>
+            <li>
+              <p class="title">Bubble Gum (Instrumental)</p>
+              <p class="artist">NewJeans</p>
+              <ul class="sm_list">
+                <li class="mp3"></li>
+                <li class="lyrics op0"></li>
+                <li class="like"></li>
+              </ul>
+            </li>
+          </ol>
+          <div class="mv">
+            <h4>이 앨범의 뮤비</h4>
+            <ul>
+              <li>
+                <a href="">
+                  <div class="thumb_wrap">
+                    <img src="" alt="" />
+                  </div>
+                  <div class="txt_wrap">
+                    <p class="title">
+                      NewJeans (뉴진스) 'How Sweet' Official MV
+                    </p>
+                    <p class="artist">NewJeans</p>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <div class="thumb_wrap">
+                    <img src="" alt="" />
+                  </div>
+                  <div class="txt_wrap">
+                    <p class="title">
+                      NewJeans (뉴진스) 'Bubble Gum' Official MV
+                    </p>
+                    <p class="artist">NewJeans</p>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
         </section>
       </article>
 
       <footer id="footerArea">
         <a href="#" class="move_top">
-          <img src="./images/mainimages/move_top.png" alt="">
+          <img src="./images/mainimages/move_top.png" alt="" />
           <span class="hidden">TOP 버튼</span>
         </a>
 
