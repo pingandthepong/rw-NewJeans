@@ -6,3 +6,9 @@ function checkLike() {
 }
 
 btnLike.addEventListener("click", checkLike);
+
+// .more 클릭 시 더보기
+const more = document.querySelector(".more");
+more.addEventListener("click", function (e) {
+  e.preventDefault();
+});
