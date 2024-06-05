@@ -7,9 +7,15 @@ function subTitle() {
     const span = document.createElement("span");
     span.textContent = subTitleSlice;
     subTitle.append(span);
+    const winWidth = window.innerWidth;
 
     setTimeout(function () {
-      span.classList.add("slideUp");
+      if (winWidth <= 640) {
+        span.classList.add("subSlideUp");
+        span.parentElement.style.textShadow = "none";
+      } else {
+        span.classList.add("slideUp");
+      }
     }, (subTitleInd + 1) * 200);
   });
 }
