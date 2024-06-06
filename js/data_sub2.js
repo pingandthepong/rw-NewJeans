@@ -1,11 +1,11 @@
 // .btn_like 클릭 시 .checked
-const btnLike = document.querySelector(".btn_like");
+const btnLikes = document.querySelectorAll(".btn_like");
 
-function checkLike() {
-  btnLike.classList.toggle("checked");
-}
-
-btnLike.addEventListener("click", checkLike);
+btnLikes.forEach(function (btnLike) {
+  btnLike.addEventListener("click", function () {
+    btnLike.classList.toggle("checked");
+  });
+});
 
 // .more 클릭 시 더보기
 const more = document.querySelector(".more");
