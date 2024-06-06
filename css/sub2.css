@@ -147,12 +147,9 @@
     }
 
     .list {
-      margin-bottom: 60px;
+      margin-bottom: 80px;
       font-family: var(--contentFont);
       counter-reset: list;
-
-      display: flex;
-      flex-direction: column;
 
       & li {
         height: 70px;
@@ -264,6 +261,44 @@
     }
 
     .mv {
+      font-family: var(--contentFont);
+
+      & h4 {
+        font-size: 1.5vw;
+        font-weight: 500;
+        margin-bottom: 15px;
+      }
+
+      & ul {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+
+        & li {
+          flex-grow: 1;
+
+          & a {
+            & .thumb_wrap {
+              margin-bottom: 10px;
+
+              & img {
+                width: 100%;
+              }
+            }
+            & .txt_wrap {
+              .title {
+                font-size: 1.2rem;
+              }
+              .artist {
+                color: var(--custom-gray);
+                font-weight: 300;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
