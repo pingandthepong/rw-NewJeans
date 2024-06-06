@@ -32,7 +32,8 @@
       align-items: center;
       gap: 80px;
       padding-bottom: 50px;
-      border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+      margin-bottom: 50px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.5);
       font-family: var(--contentFont);
 
       .txt_wrap {
@@ -137,21 +138,23 @@
       .jacket_wrap {
         width: 557px;
         height: 520px;
-
-        border: 1px solid #fff;
-        box-sizing: border-box;
+        position: relative;
 
         &::before {
           content: "Released May 24, 2024";
+          display: block;
           font-family: var(--contentFont);
           font-size: 22px;
-          display: block;
-          transform: rotate(-90deg) translateX(100%);
-          transform-origin: 0 0;
-          color: red;
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          transform: rotate(-90deg) translateY(100%);
+          transform-origin: 0 100%;
         }
         & img {
           width: 520px;
+
+          margin-left: calc(557px - 520px);
         }
       }
     }
