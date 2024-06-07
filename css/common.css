@@ -4,8 +4,7 @@
 @font-face {
   font-family: "aAbstractGroovy";
   src: url("../fonts/aAbstractGroovy.eot");
-  src: url("../fonts/aAbstractGroovy.woff") format("woff"),
-    url("../fonts/aAbstractGroovy.ttf") format("truetype");
+  src: url("../fonts/aAbstractGroovy.ttf") format("truetype");
 }
 
 :root {
