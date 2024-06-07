@@ -310,14 +310,275 @@
 }
 /* 일반pc */
 @media screen and (max-width: 1280px) {
+  #content {
+    section {
+      width: 80%;
+    }
+  }
 }
 
 /* 일반 태블릿 */
 @media screen and (max-width: 1024px) {
+  #content {
+    section {
+      width: 90%;
+    }
+
+    section.intro {
+      .info {
+        gap: 60px;
+
+        .txt_wrap {
+          dl {
+            .title {
+              font-size: 5vw;
+            }
+          }
+        }
+
+        .jacket_wrap {
+          &::before {
+            font-size: 1.5vw;
+          }
+          & img {
+            width: calc(520px * 0.7);
+            margin-left: calc((557px - 520px) * 0.7);
+          }
+        }
+      }
+
+      .list {
+        & li {
+          & .artist {
+            display: none;
+          }
+        }
+      }
+
+      .mv {
+        & h4 {
+          font-size: 1.8vw;
+          font-weight: 500;
+          margin-bottom: 15px;
+        }
+
+        & ul {
+          gap: 10px;
+
+          & li {
+            & a {
+              & .txt_wrap {
+                .title {
+                  font-size: 1.1rem;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 /* 소형 태블릿 */
 @media screen and (max-width: 768px) {
+  #content {
+    section.intro {
+      .info {
+        gap: 50px;
+
+        .txt_wrap {
+          dl {
+            dd {
+              &:not(:first-of-type) {
+                margin-bottom: 10px;
+              }
+            }
+            .title {
+              font-size: 5vw;
+            }
+            .artist {
+              font-size: 1rem;
+            }
+            .genre,
+            .desc {
+              font-size: 13px;
+            }
+          }
+
+          .btn_wraps {
+            gap: 8px;
+            margin-top: 20px;
+          }
+        }
+
+        .jacket_wrap {
+          &::before {
+            font-size: 1.75vw;
+          }
+          & img {
+            width: calc(520px * 0.5);
+            margin-left: calc((557px - 520px) * 0.5);
+          }
+        }
+      }
+
+      .list {
+        margin-bottom: 80px;
+        font-family: var(--contentFont);
+        counter-reset: list;
+
+        & li {
+          height: 70px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 18px;
+
+          &:hover {
+            background: #191919;
+          }
+
+          & a.title {
+            flex: 0 1 50%;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+
+            &::before {
+              counter-increment: list;
+              content: "" counter(list);
+              width: 32px;
+            }
+            &.playBtn::before {
+              content: "\f04b";
+              font-family: "Font Awesome 5 Free";
+              font-weight: 900;
+            }
+
+            & strong {
+              font-weight: 400;
+              line-height: 1;
+
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+            & .badge {
+              display: inline-block;
+              color: #ccc;
+              background: #353535;
+              font-size: 10px;
+              padding: 0 4px;
+              cursor: default;
+            }
+          }
+
+          & .artist {
+            flex: 0 1 30%;
+            font-weight: 300;
+            color: var(--custom-gray);
+            font-size: 1rem;
+            cursor: pointer;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+
+          & .sm_list {
+            flex: 0 1 20%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+
+            & button {
+              color: var(--custom-gray);
+              background: none;
+              cursor: pointer;
+
+              &.mp3 {
+                border: 1px solid var(--custom-gray);
+                padding: 3px 6px;
+                border-radius: 3px;
+                background: none;
+                font-size: 0.65rem;
+              }
+              &.lyrics {
+                &::before {
+                  content: "";
+                  display: block;
+                  width: 24px;
+                  height: 24px;
+                  background: url("../images/sub2/lyrics.svg") no-repeat center;
+                  background-size: cover;
+                }
+                &.op0::before {
+                  opacity: 0;
+                  cursor: default;
+                }
+              }
+              &.btn_like {
+                &::before {
+                  content: "";
+                  display: block;
+                  width: 24px;
+                  height: 24px;
+                  background: url("../images/sub2/like.svg") no-repeat center;
+                }
+                &.checked::before {
+                  background: url("../images/sub2/like_on.svg") no-repeat center;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .mv {
+        font-family: var(--contentFont);
+
+        & h4 {
+          font-size: 1.5vw;
+          font-weight: 500;
+          margin-bottom: 15px;
+        }
+
+        & ul {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 20px;
+
+          & li {
+            flex-grow: 1;
+
+            & a {
+              & .thumb_wrap {
+                margin-bottom: 10px;
+
+                & img {
+                  width: 100%;
+                }
+              }
+              & .txt_wrap {
+                .title {
+                  font-size: 1.2rem;
+                }
+                .artist {
+                  color: var(--custom-gray);
+                  font-weight: 300;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 /* 모바일 */

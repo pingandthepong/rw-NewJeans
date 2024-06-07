@@ -33,3 +33,25 @@ listLis.forEach(function (listLi, idx) {
     leave(idx);
   });
 });
+
+// max-width: 768px; 이하에서는 전체재생 => 전체, 공유로 텍스트
+function btnText() {
+  const fullPlay = document.querySelector("#fullPlay");
+  const share = document.querySelector("#share");
+
+  let winWidth = window.innerWidth;
+
+  if (winWidth <= 768) {
+    fullPlay.textContent = "전체";
+    share.textContent = "공유";
+  } else {
+    fullPlay.textContent = "전체재생";
+    share.textContent = "공유하기";
+  }
+}
+// 초기 로드 시 실행
+btnText();
+// resize 이벤트 발생 시 실행
+window.addEventListener("resize", () => {
+  btnText();
+});
