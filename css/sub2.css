@@ -326,7 +326,7 @@
 
     section.intro {
       .info {
-        gap: 60px;
+        gap: 30px;
 
         .txt_wrap {
           dl {
@@ -385,7 +385,7 @@
   #content {
     section.intro {
       .info {
-        gap: 50px;
+        gap: 20px;
 
         .txt_wrap {
           dl {
@@ -417,120 +417,32 @@
             font-size: 1.75vw;
           }
           & img {
-            width: calc(520px * 0.5);
-            margin-left: calc((557px - 520px) * 0.5);
+            width: calc(520px * 0.45);
+            margin-left: calc((557px - 520px) * 0.45);
           }
         }
       }
 
       .list {
-        margin-bottom: 80px;
-        font-family: var(--contentFont);
-        counter-reset: list;
+        margin-bottom: 60px;
 
         & li {
-          height: 70px;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          font-size: 18px;
-
-          &:hover {
-            background: #191919;
-          }
+          height: 60px;
+          font-size: 16px;
 
           & a.title {
-            flex: 0 1 50%;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            cursor: pointer;
-
-            &::before {
-              counter-increment: list;
-              content: "" counter(list);
-              width: 32px;
-            }
-            &.playBtn::before {
-              content: "\f04b";
-              font-family: "Font Awesome 5 Free";
-              font-weight: 900;
-            }
-
-            & strong {
-              font-weight: 400;
-              line-height: 1;
-
-              &:hover {
-                text-decoration: underline;
-              }
-            }
-            & .badge {
-              display: inline-block;
-              color: #ccc;
-              background: #353535;
-              font-size: 10px;
-              padding: 0 4px;
-              cursor: default;
-            }
-          }
-
-          & .artist {
-            flex: 0 1 30%;
-            font-weight: 300;
-            color: var(--custom-gray);
-            font-size: 1rem;
-            cursor: pointer;
-
-            &:hover {
-              text-decoration: underline;
-            }
+            flex: 0 1 70%;
           }
 
           & .sm_list {
-            flex: 0 1 20%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 24px;
+            flex: 0;
 
             & button {
-              color: var(--custom-gray);
-              background: none;
-              cursor: pointer;
-
               &.mp3 {
-                border: 1px solid var(--custom-gray);
-                padding: 3px 6px;
-                border-radius: 3px;
-                background: none;
-                font-size: 0.65rem;
+                display: none;
               }
               &.lyrics {
-                &::before {
-                  content: "";
-                  display: block;
-                  width: 24px;
-                  height: 24px;
-                  background: url("../images/sub2/lyrics.svg") no-repeat center;
-                  background-size: cover;
-                }
-                &.op0::before {
-                  opacity: 0;
-                  cursor: default;
-                }
-              }
-              &.btn_like {
-                &::before {
-                  content: "";
-                  display: block;
-                  width: 24px;
-                  height: 24px;
-                  background: url("../images/sub2/like.svg") no-repeat center;
-                }
-                &.checked::before {
-                  background: url("../images/sub2/like_on.svg") no-repeat center;
-                }
+                display: none;
               }
             }
           }
@@ -538,39 +450,21 @@
       }
 
       .mv {
-        font-family: var(--contentFont);
-
         & h4 {
-          font-size: 1.5vw;
-          font-weight: 500;
-          margin-bottom: 15px;
+          font-size: 2.5vw;
         }
 
         & ul {
-          width: 100%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          gap: 20px;
+          gap: 8px;
 
           & li {
-            flex-grow: 1;
-
             & a {
-              & .thumb_wrap {
-                margin-bottom: 10px;
-
-                & img {
-                  width: 100%;
-                }
-              }
               & .txt_wrap {
                 .title {
-                  font-size: 1.2rem;
+                  font-size: 1rem;
                 }
                 .artist {
-                  color: var(--custom-gray);
-                  font-weight: 300;
+                  font-size: 0.9rem;
                 }
               }
             }
@@ -583,8 +477,89 @@
 
 /* 모바일 */
 @media screen and (max-width: 640px) {
+  #content {
+    section.intro {
+      .info {
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+        text-align: center;
+
+        .txt_wrap {
+          dl {
+            dd {
+              font-size: 1.1rem;
+            }
+            .title {
+              font-size: 12vw;
+              -webkit-text-stroke: 1px #fff;
+            }
+            .artist {
+              font-size: 1.1rem;
+            }
+          }
+
+          .btn_wraps {
+            justify-content: stretch;
+            margin-top: 30px;
+
+            button {
+              flex-shrink: 1;
+              flex-grow: 1;
+
+              &.btn_like {
+                position: relative;
+
+                &::before {
+                  position: absolute;
+                }
+              }
+            }
+          }
+        }
+
+        .jacket_wrap {
+          &::before {
+            display: none;
+          }
+          & img {
+            width: 100%;
+            margin-left: 0;
+          }
+        }
+      }
+
+      .mv {
+        & h4 {
+          font-size: 5vw;
+        }
+      }
+    }
+  }
 }
 
 /* 최소 사이즈  처리 */
 @media screen and (max-width: 480px) {
+  #content {
+    & section.intro {
+      & .list {
+        & li {
+          & a.title {
+            flex: 0 1 100%;
+          }
+          & .sm_list {
+            display: none;
+          }
+        }
+      }
+
+      & .mv {
+        & ul {
+          width: 190%;
+          transition: transform 0.3s ease-in-out;
+        }
+      }
+    }
+  }
 }
