@@ -1,0 +1,191 @@
+:root {
+  --album1: #323b8b;
+  --album2: #9d2334;
+  --album3: #fff;
+}
+
+#content {
+  width: 100%;
+  margin: 0 auto;
+  background: #fff;
+
+  & #menu {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translate(-100%, -50%);
+    font-family: var(--contentFont);
+    color: #fff;
+    z-index: 10;
+
+    & li {
+      position: relative;
+      transform: translateX(-100%);
+
+      &.ani {
+        animation: menuAni 0.5s ease-out forwards;
+      }
+
+      &:first-of-type {
+        border-top: 1px solid #fff;
+      }
+
+      & a {
+        padding: 8px 8px 8px 24px;
+        text-align: right;
+        font-size: 1.5rem;
+        font-weight: 100;
+
+        &::before {
+          content: "";
+          display: block;
+          width: 100%;
+          height: 1px;
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          background: #fff;
+        }
+      }
+    }
+  }
+
+  & section {
+    width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+    font-family: var(--contentFont);
+    overflow: hidden;
+
+    & .bg {
+      width: 120%;
+      height: 120%;
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+      filter: blur(100px);
+      z-index: 0;
+    }
+
+    & .content_wrap {
+      width: 50%;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 370px 1fr;
+      column-gap: 80px;
+      row-gap: 20px;
+      grid-template-areas:
+        "jacket title"
+        "jacket txt"
+        "jacket txt"
+        "jacket list";
+
+      /* & > * {
+        border: 1px solid #000;
+        box-sizing: border-box;
+      } */
+
+      & h3 {
+        grid-area: title;
+        font-size: 1.8vw;
+        color: #fff;
+        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+        font-weight: 500;
+        position: relative;
+      }
+
+      & .jacket_wrap {
+        grid-area: jacket;
+        position: relative;
+
+        &::before {
+          content: "";
+          display: block;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          background: #d5d5d5;
+          border: 5px solid var(--album1);
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 1;
+        }
+        section:nth-of-type(1) &::before {
+          border: 5px solid var(--album1);
+        }
+        section:nth-of-type(2) &::before {
+          border: 5px solid var(--album2);
+        }
+        section:nth-of-type(3) &::before {
+          border: 5px solid var(--album3);
+        }
+
+        & img {
+          border-radius: 50%;
+          border: 5px solid #fff;
+          box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.5);
+          position: relative;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+        }
+
+        &.on img {
+          animation: musicOn 5s linear infinite;
+        }
+      }
+
+      & .song_list {
+        grid-area: list;
+        background: #fff;
+        padding: 24px 30px;
+        border-radius: 30px;
+      }
+
+      & .txt_wrap {
+        grid-area: txt;
+        color: var(--font);
+
+        & .genre {
+          margin-bottom: 15px;
+        }
+        & .desc {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: none;
+        }
+      }
+    }
+  }
+}
+
+#footerArea {
+  /* &::before {
+    display: none;
+  } */
+}
+
+@keyframes menuAni {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes musicOn {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
