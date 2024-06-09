@@ -29,6 +29,14 @@ const backward = document.querySelector(".backward");
 const forward = document.querySelector(".forward");
 const audioEl = document.querySelector(".new_audio");
 
+const tracks = [
+  "./files/attention.mp3",
+  "./files/hypeboy.mp3",
+  "./files/cookie.mp3",
+  "./files/hurt.mp3",
+];
+
+let currentTrackIdx = 0;
 let status = false; // false(정지상태), true(재생중)
 let ctx, analyzer, animationId;
 
@@ -36,6 +44,8 @@ let ctx, analyzer, animationId;
 window.addEventListener("DOMContentLoaded", (event) => {
   createVisualizerBars();
   setPlayButton();
+  createVirtualEls();
+  loadTrack(currentTrackIdx);
 });
 
 function setPlayButton() {
@@ -68,10 +78,7 @@ function setPlayButton() {
   // TODO
   forward.addEventListener("click", function (e) {
     e.preventDefault();
-    audioEl.currentTime = 100;
-    if (status == true) {
-      audioEl.play();
-    }
+    nextTrack();
   });
 }
 
@@ -79,9 +86,10 @@ function createVisualizerBars() {
   const visualizerContainer = document.querySelectorAll(
     ".visualizer-container"
   );
-  visualizerContainer.innerHTML = ""; // 기존 바를 제거하고 새로 추가하도록 수정
 
   visualizerContainer.forEach(function (visualizer) {
+    visualizerContainer.innerHTML = ""; // 기존 바를 제거하고 새로 추가하도록 수정
+
     for (let i = 0; i < 30; i++) {
       // 30은 NBR_OF_BARS의 값
       let bar = document.createElement("DIV");
@@ -141,12 +149,26 @@ function renderFrame() {
   animationId = window.requestAnimationFrame(renderFrame);
 }
 
-// .visual_virtualEl li * 30 생성
-const virtuals = document.querySelectorAll(".visual_virtualEl");
-
-virtuals.forEach(function (virtual) {
-  for (let i = 0; i < 30; i++) {
-    let li = document.createElement("li");
-    virtual.appendChild(li);
+function loadTrack(index) {
+  audioEl.src = tracks[index];
+  audioEl.load();
+  if (status === true) {
+    playAudio();
   }
-});
+}
+
+function nextTrack() {
+  currentTrackIdx = (currentTrackIdx + 1) % tracks.length;
+  loadTrack(currentTrackIdx);
+}
+
+// .visual_virtualEl li * 30 생성
+function createVirtualEls() {
+  const virtuals = document.querySelectorAll(".visual_virtualEl");
+  virtuals.forEach(function (virtual) {
+    for (let i = 0; i < 30; i++) {
+      let li = document.createElement("li");
+      virtual.appendChild(li);
+    }
+  });
+}
