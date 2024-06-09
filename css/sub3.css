@@ -225,6 +225,9 @@
         height: 180px;
         overflow: hidden;
 
+        border: 1px solid red;
+        box-sizing: border-box;
+
         & .visualizer-container {
           width: 100%;
           height: 150px;
@@ -233,25 +236,10 @@
 
           & .visualizer-container__bar {
             display: inline-block;
+            min-height: 4px;
             background: white;
             margin: 0 0.2%;
             width: 2.93%;
-          }
-        }
-        & .visual_virtualEl {
-          width: 100%;
-          height: 8px;
-          position: absolute;
-          left: 50%;
-          bottom: 30px;
-          transform: translate(-50%, 0);
-
-          & li {
-            display: inline-block;
-            background: white;
-            margin: 0 0.2%;
-            width: 2.93%;
-            height: 10px;
           }
         }
 

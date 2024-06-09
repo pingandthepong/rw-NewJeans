@@ -162,17 +162,6 @@ function nextTrack() {
   loadTrack(currentTrackIdx);
 }
 
-// .visual_virtualEl li * 30 생성
-function createVirtualEls() {
-  const virtuals = document.querySelectorAll(".visual_virtualEl");
-  virtuals.forEach(function (virtual) {
-    for (let i = 0; i < 30; i++) {
-      let li = document.createElement("li");
-      virtual.appendChild(li);
-    }
-  });
-}
-
 // .badge_title
 const badgeTitles = document.querySelectorAll(".badge_title a");
 
@@ -192,3 +181,5 @@ badgeHits.forEach(function (badgeHit) {
   badgeHit.appendChild(spanHit);
   spanHit.textContent = "HIT";
 });
+
+// 음악 play될 때, 제목 on
