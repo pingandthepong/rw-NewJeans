@@ -148,12 +148,28 @@
       & .song_list {
         grid-area: list;
         height: 180px;
-        /* overflow-y: scroll; */
         padding: 8px 0;
         counter-reset: songList;
 
         & li {
+          &.badge a span {
+            display: inline-block;
+            margin-left: 8px;
+            color: #fff;
+            font-size: 0.65rem;
+            padding: 2px 4px;
+            border-radius: 3px;
+
+            &.spanTitle {
+              background: var(--sub);
+            }
+            &.spanHit {
+              background: var(--point1);
+            }
+          }
           & a {
+            display: flex;
+            align-items: center;
             padding: 8px 24px;
 
             &::before {
