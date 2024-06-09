@@ -172,3 +172,23 @@ function createVirtualEls() {
     }
   });
 }
+
+// .badge_title
+const badgeTitles = document.querySelectorAll(".badge_title a");
+
+badgeTitles.forEach(function (badgeTitle) {
+  const spanTitle = document.createElement("span");
+  spanTitle.classList.add("spanTitle");
+  badgeTitle.appendChild(spanTitle);
+  spanTitle.textContent = "TITLE";
+});
+
+// .badge_hit
+const badgeHits = document.querySelectorAll(".badge_hit a");
+
+badgeHits.forEach(function (badgeHit) {
+  const spanHit = document.createElement("span");
+  spanHit.classList.add("spanHit");
+  badgeHit.appendChild(spanHit);
+  spanHit.textContent = "HIT";
+});
