@@ -59,3 +59,13 @@
     }
   }
 }
+
+/* 모바일 */
+@media screen and (max-width: 640px) {
+  #content {
+    & h2.subTitle {
+      text-shadow: none;
+      -webkit-text-stroke: 0.2vw #fff;
+    }
+  }
+}

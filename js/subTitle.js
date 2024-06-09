@@ -12,8 +12,6 @@ function subTitle() {
     setTimeout(function () {
       if (winWidth <= 640) {
         span.classList.add("subSlideUp");
-        span.parentElement.style.textShadow = "none";
-        span.parentElement.style.webkitTextStroke = "0.2vw #fff";
       } else {
         span.classList.add("slideUp");
       }
