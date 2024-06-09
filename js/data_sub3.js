@@ -65,22 +65,31 @@ function setPlayButton() {
     }
   });
 
+  // TODO
   forward.addEventListener("click", function (e) {
     e.preventDefault();
+    audioEl.currentTime = 100;
+    if (status == true) {
+      audioEl.play();
+    }
   });
 }
 
 function createVisualizerBars() {
-  const visualizerContainer = document.querySelector(".visualizer-container");
+  const visualizerContainer = document.querySelectorAll(
+    ".visualizer-container"
+  );
   visualizerContainer.innerHTML = ""; // 기존 바를 제거하고 새로 추가하도록 수정
 
-  for (let i = 0; i < 20; i++) {
-    // 20은 NBR_OF_BARS의 값
-    const bar = document.createElement("DIV");
-    bar.setAttribute("id", "bar" + i);
-    bar.setAttribute("class", "visualizer-container__bar");
-    visualizerContainer.appendChild(bar);
-  }
+  visualizerContainer.forEach(function (visualizer) {
+    for (let i = 0; i < 30; i++) {
+      // 30은 NBR_OF_BARS의 값
+      let bar = document.createElement("DIV");
+      bar.setAttribute("id", "bar" + i);
+      bar.setAttribute("class", "visualizer-container__bar");
+      visualizer.appendChild(bar);
+    }
+  });
 }
 
 function createAudioContext() {
@@ -118,9 +127,9 @@ function renderFrame() {
   const frequencyData = new Uint8Array(analyzer.frequencyBinCount);
   analyzer.getByteFrequencyData(frequencyData);
 
-  for (let i = 0; i < 20; i++) {
-    // 20은 NBR_OF_BARS의 값
-    const index = (i + 10) * 2;
+  for (let i = 0; i < 30; i++) {
+    // 30은 NBR_OF_BARS의 값
+    const index = (i + 15) * 2;
     const fd = frequencyData[index];
     const bar = document.querySelector("#bar" + i);
     if (bar) {
@@ -131,3 +140,13 @@ function renderFrame() {
 
   animationId = window.requestAnimationFrame(renderFrame);
 }
+
+// .visual_virtualEl li * 30 생성
+const virtuals = document.querySelectorAll(".visual_virtualEl");
+
+virtuals.forEach(function (virtual) {
+  for (let i = 0; i < 30; i++) {
+    let li = document.createElement("li");
+    virtual.appendChild(li);
+  }
+});
