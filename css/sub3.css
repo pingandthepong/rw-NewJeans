@@ -76,19 +76,24 @@
       transform: translate(-50%, -50%);
       z-index: 1;
       display: grid;
-      grid-template-columns: 370px 1fr;
-      column-gap: 80px;
-      row-gap: 20px;
+      grid-template-columns: 370px 50px 1fr 1fr;
+
+      column-gap: 20px;
+      row-gap: 30px;
       grid-template-areas:
-        "jacket title"
-        "jacket txt"
-        "jacket txt"
-        "jacket list";
+        "jacket gap title title"
+        "jacket gap txt txt"
+        "jacket gap txt txt"
+        "jacket gap list music";
 
       /* & > * {
         border: 1px solid #000;
         box-sizing: border-box;
       } */
+
+      & .gap {
+        grid-area: gap;
+      }
 
       & h3 {
         grid-area: title;
@@ -142,11 +147,17 @@
         }
       }
 
+      & .glass {
+        border-radius: 30px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(30px);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
+      }
+
       & .song_list {
         grid-area: list;
-        background: #fff;
         padding: 24px 30px;
-        border-radius: 30px;
       }
 
       & .txt_wrap {
@@ -160,6 +171,36 @@
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: none;
+        }
+      }
+
+      & .music_wrap {
+        grid-area: music;
+
+        & .visualizer-container {
+          width: 200px;
+          height: 100px;
+          background: #fff;
+        }
+        & .visual_virtualEl {
+          width: 200px;
+          height: 100px;
+          & li {
+            background: #fff;
+          }
+        }
+
+        & .btn_wrap {
+          border: 1px solid #000;
+          box-sizing: border-box;
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          & a {
+            width: 30px;
+          }
         }
       }
     }
