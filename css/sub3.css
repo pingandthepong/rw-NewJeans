@@ -305,10 +305,8 @@
 
   #content {
     & section {
-      padding: 50px 0;
-
       & .content_wrap {
-        width: 60%;
+        width: 90%;
         grid-template-columns: repeat(2, 1fr);
         grid-template-areas:
           "title title "
@@ -316,34 +314,33 @@
           "txt txt"
           "list music";
 
+        & .jacket_wrap {
+          & img {
+            width: 330px;
+          }
+        }
+
         & .song_list {
-          height: 100px;
-          padding: 0;
           overflow-y: scroll;
         }
 
-        & .txt_wrap {
-          text-align: center;
-          font-size: 1.5vw;
-
-          & .desc {
-            text-align: left;
-            font-size: 1.3vw;
+        & .music_wrap {
+          & .btn_wrap {
+            & a {
+              width: 60px;
+              font-size: 1.5rem;
+            }
           }
         }
 
-        & .music_wrap {
-          height: 100px;
+        & .txt_wrap {
+          grid-template-columns: repeat(6, 1fr);
+          grid-template-areas:
+            "release genre genre genre genre genre"
+            "desc desc desc desc desc desc";
 
-          & .visualizer-container {
-            height: 72px;
-            & .visualizer-container__bar {
-              max-height: 72px;
-            }
-          }
-
-          & .btn_wrap {
-            margin-top: 8px;
+          & .desc {
+            font-size: 1.3vw;
           }
         }
       }
@@ -355,7 +352,11 @@
 @media screen and (max-width: 768px) {
   #content {
     & section {
+      padding: 80px;
+
       & .content_wrap {
+        width: 100%;
+
         grid-template-areas:
           "title title"
           "jacket list"

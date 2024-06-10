@@ -1,4 +1,28 @@
-document.addEventListener("DOMContentLoaded", setupMenu);
+document.addEventListener("DOMContentLoaded", function () {
+  setupMenu();
+  tabletMenu();
+});
+
+window.addEventListener("resize", function () {
+  tabletMenu();
+});
+
+// TODO
+$(document).ready(function () {
+  $(window).on("scroll", function () {
+    const ht = $(window).height();
+    // 현재 문서가 스크롤된 거리 저장
+    const scroll = $(window).scrollTop();
+
+    // 메뉴 활성화
+    for (let i = 0; i < 3; i++) {
+      if (scroll >= ht * i && scroll < ht * (i + 1)) {
+        $("#menu li").removeClass("on");
+        $("#menu li").eq(i).addClass("on");
+      }
+    }
+  });
+});
 
 // #menu 클릭시 자동 상하 스크롤 및 활성화 클래스 관리
 function setupMenu() {
@@ -42,6 +66,27 @@ function setupMenu() {
         }
       }, frameRate);
     });
+  });
+}
+
+// 태블릿(768) 이하에서 textContent 변경
+function tabletMenu() {
+  const winW = window.innerWidth;
+  const menuLists = document.querySelectorAll("#menu li a");
+
+  menuLists.forEach((menuList, idx) => {
+    if (winW <= 768) {
+      if (!menuList.dataset.originalText) {
+        menuList.dataset.originalText = menuList.textContent; // 원리 텍스트 저장
+      }
+      menuList.textContent = `${idx + 1}`;
+      menuList.style.fontSize = "1.5rem";
+    } else {
+      if (menuList.dataset.originalText) {
+        menuList.textContent = menuList.dataset.originalText; // 원래 텍스트 복원
+        menuList.style.fontSize = "";
+      }
+    }
   });
 }
 
