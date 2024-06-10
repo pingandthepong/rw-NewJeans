@@ -209,35 +209,9 @@
 
       & .music_wrap {
         grid-area: music;
-        position: relative;
-        overflow: hidden;
         display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        gap: 15px;
-
-        & .visualizer-container {
-          width: 100%;
-          /* height 필수 */
-          height: 165px;
-          transform: rotate(180deg);
-          flex-grow: 1;
-          display: flex;
-          justify-content: center;
-          align-items: start;
-
-          & .visualizer-container__bar {
-            min-height: 4px;
-            max-height: 100%;
-            background: white;
-            margin: 0 0.2%;
-            width: 2.93%;
-
-            flex-basis: 2.93%;
-            gap: 0 0.2%;
-            border-radius: 4px;
-          }
-        }
+        justify-content: center;
+        align-items: center;
 
         & .btn_wrap {
           display: flex;
@@ -246,7 +220,8 @@
           text-align: center;
 
           & a {
-            width: 30px;
+            width: 60px;
+            font-size: 1.5rem;
             color: #fff;
             display: flex;
             justify-content: center;
@@ -333,15 +308,6 @@
           }
           & img {
             width: 50%;
-          }
-        }
-
-        & .music_wrap {
-          & .btn_wrap {
-            & a {
-              width: 60px;
-              font-size: 1.5rem;
-            }
           }
         }
 
