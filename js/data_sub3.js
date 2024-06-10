@@ -1,3 +1,11 @@
+document.addEventListener("DOMContentLoaded", function () {
+  setBG();
+  setHeight();
+  setupMenu();
+});
+
+document.addEventListener("resize", setHeight);
+
 // 각 section에 .bg 생성 후 background를 img와 맞추기
 function setBG() {
   const sections = document.querySelectorAll("section");
@@ -42,7 +50,10 @@ function setupMenu() {
     menuItem.addEventListener("click", function (e) {
       e.preventDefault();
 
-      const sectionIdx = Array.from(menuItems).indexOf(menuItem);
+      // menuItems는 유사배열(NodeList)로, 배열 메서드인 forEach는 사용 가능하지만 indexOf같은 배열 전용 메서드는 직접 사용 불가능하기 때문에 Array.from을 통해 배열로 변환
+      // const sectionIdx = Array.from(menuItems).indexOf(menuItem);
+      // menuItems에서 특정 요소의 인덱스를 찾기 위해 Array.from을 사용한건데, Array.from은 직관적이지만 배열로 변환하는 방식이고, Array.prototype.indexOf.call은 배열로 변환하지 않고도 인덱스를 찾을 수 있기에 성능상의 이점이 있음 (NodeList를 배열로 반환하지 않고도 indexOf 메서드 사용 가능하게 해줌)
+      const sectionIdx = Array.prototype.indexOf.call(menuItems, menuItem);
       const targetSection = sections[sectionIdx];
       targetSection.scrollIntoView({ behavior: "smooth" });
 
@@ -54,14 +65,6 @@ function setupMenu() {
     });
   });
 }
-
-document.addEventListener("DOMContentLoaded", function () {
-  setBG();
-  setHeight();
-  setupMenu();
-});
-
-document.addEventListener("resize", setHeight);
 
 // 화면 스크롤 시 현재 메뉴 활성화
 window.addEventListener("scroll", function () {
