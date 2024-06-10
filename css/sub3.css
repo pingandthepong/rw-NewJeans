@@ -512,7 +512,7 @@
         & h3 {
           color: #fff;
           -webkit-text-stroke: 0;
-          text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+          text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.35);
         }
         & .jacket_wrap {
           &::before {
