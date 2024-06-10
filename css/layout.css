@@ -168,23 +168,8 @@
           background: white;
           margin: 0 2px;
           width: 10px;
+          min-height: 8px;
           border-radius: 30px;
-        }
-      }
-      & .visual_virtualEl {
-        width: calc(12px * 20 + 2px * 18);
-        height: 12px;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, 100%);
-        display: flex;
-        gap: 4px;
-
-        & li {
-          background: white;
-          width: 12px;
-          height: 10px;
         }
       }
 
@@ -707,9 +692,6 @@
           & .visualizer-container__bar {
             width: 8px;
           }
-        }
-        & .visual_virtualEl {
-          width: calc(10px * 20 + 2px * 18);
         }
       }
 
