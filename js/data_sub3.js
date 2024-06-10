@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("resize", setHeight);
+window.addEventListener("scroll", handleScroll);
 
 // 각 section에 .bg 생성 후 background를 img와 맞추기
 function setBG() {
@@ -67,46 +68,50 @@ function setupMenu() {
 }
 
 // 화면 스크롤 시 현재 메뉴 활성화
-window.addEventListener("scroll", function () {
-  const scroll = window.scrollY || this.window.pageYOffset;
+function handleScroll() {
+  const sections = document.querySelectorAll("section");
+  const menuItems = document.querySelectorAll("#menu li");
+  const scroll = window.scrollY || window.pageYOffset;
 
-  sections.forEach(function (section, i) {
-    if (scroll >= winH * i && scroll < winH * (i + 1)) {
-      menuItems.forEach(function (menuItem) {
-        menuItem.classList.remove("on");
-      });
-      // menuItem[i].classList.add("on");
+  sections.forEach(function (section, secIdx) {
+    // 각 섹션의 '실제 상단 위치' 계산
+    const sectionTop = section.getBoundingClientRect().top + scroll;
+    const sectionBottom = sectionTop + section.offsetHeight; // 각 섹션의 맨 아래 위치 계산
+
+    if (scroll >= sectionTop && scroll < sectionBottom - 300) {
+      menuItems.forEach((item) => item.classList.remove("on"));
+      menuItems[secIdx].classList.add("on");
+    } else if (scroll < sectionTop) {
+      menuItems[secIdx].classList.remove("on");
+    }
+  });
+}
+
+$(document).ready(function () {
+  // section위에서 마우스 휠 이벤트 (delta는 휠의 방향 감지. 올리면 1, 내리면 -1)
+  $("section").on("mousewheel", function (event, delta) {
+    // 마우스 휠을 올렸을때
+    if (delta > 0) {
+      // 변수 prev에 현재 휠을 움직인 section에서 이전 section의 offset().top위치 저장
+      var prev = $(this).prev().offset().top;
+      // 문서 전체를 prev에 저장된 위치로 이동
+      $("html,body").stop().animate({ scrollTop: prev }, 500);
+
+      // wheel 이벤트가 여러 번 계산됨을 방지
+      return false;
+
+      // 마우스 휠을 내렸을때
+    } else if (delta < 0) {
+      // 변수 next에 현재 휠을 움직인 section에서 다음 section의 offset().top위치 저장
+      var next = $(this).next().offset().top;
+      // 문서 전체를 next에 저장된 위치로 이동
+      $("html,body").stop().animate({ scrollTop: next }, 500);
+
+      // wheel 이벤트가 여러 번 계산됨을 방지
+      return false;
     }
   });
 });
-
-// $(document).ready(function () {
-//   // ==============================
-//   // section위에서 마우스 휠 이벤트 (delta는 휠의 방향을 감지 - 올리면 1, 내리면 -1)
-//   $("section").on("mousewheel", function (event, delta) {
-//     // 마우스 휠을 올렸을때
-//     if (delta > 0) {
-//       // 변수 prev에 현재 휠을 움직인 section에서 이전 section의 offset().top위치 저장
-//       var prev = $(this).prev().offset().top;
-//       // 문서 전체를 prev에 저장된 위치로 이동
-//       $("html,body").stop().animate({ scrollTop: prev }, 500);
-
-//       // wheel 이벤트가 여러 번 계산됨을 방지
-//       return false;
-
-//       // 마우스 휠을 내렸을때
-//     } else if (delta < 0) {
-//       // 변수 next에 현재 휠을 움직인 section에서 다음 section의 offset().top위치 저장
-//       var next = $(this).next().offset().top;
-//       // 문서 전체를 next에 저장된 위치로 이동
-//       $("html,body").stop().animate({ scrollTop: next }, 500);
-
-//       // wheel 이벤트가 여러 번 계산됨을 방지
-//       return false;
-//     }
-//   });
-// });
-
 // ==============================
 // // music player
 // const playBtns = document.querySelectorAll(".playBtn");
