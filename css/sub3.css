@@ -509,6 +509,11 @@
       padding: 50px 20px;
 
       & .content_wrap {
+        & h3 {
+          color: #fff;
+          -webkit-text-stroke: 0;
+          text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+        }
         & .jacket_wrap {
           &::before {
             width: 40px;
@@ -522,6 +527,11 @@
               font-size: 5vw;
             }
           }
+        }
+
+        & .txt_wrap {
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-areas: "release genre";
         }
       }
     }
