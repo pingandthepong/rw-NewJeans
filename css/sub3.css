@@ -32,9 +32,9 @@
     }
 
     & a {
-      padding: 8px 8px 8px 24px;
+      padding: 8px;
       text-align: right;
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       font-weight: 100;
       transition: all 0.35s ease-out;
       position: relative;
@@ -79,15 +79,15 @@
     }
 
     & .content_wrap {
-      width: 50%;
+      width: 70%;
       position: absolute;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
       z-index: 1;
       display: grid;
-      grid-template-columns: 370px 50px 1fr 1fr;
-      column-gap: 20px;
+      grid-template-columns: 370px 20px 1fr 1fr;
+      column-gap: 10px;
       row-gap: 30px;
       grid-template-areas:
         "title title title title"
@@ -214,6 +214,7 @@
           position: relative;
           padding: 20px 30px;
           font-weight: 300;
+          font-size: 1.2vw;
 
           &::before {
             content: "";
@@ -261,10 +262,14 @@
           display: flex;
           justify-content: center;
           align-items: center;
+          text-align: center;
           margin-top: 15px;
 
           & a {
             width: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
           }
         }
       }
@@ -293,5 +298,249 @@
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+/* 일반 pc */
+@media screen and (max-width: 1280px) {
+  #menu {
+    & li {
+      & a {
+        font-size: 1.15rem;
+      }
+    }
+  }
+}
+
+/* 태블릿 */
+@media screen and (max-width: 1024px) {
+  #menu {
+    & li {
+      & a {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  #content {
+    & section {
+      padding: 50px 0;
+
+      & .content_wrap {
+        width: 60%;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+          "title title "
+          "jacket jacket"
+          "txt txt"
+          "list music";
+
+        & .song_list {
+          height: 100px;
+          padding: 0;
+          overflow-y: scroll;
+        }
+
+        & .txt_wrap {
+          text-align: center;
+          font-size: 1.5vw;
+
+          & .desc {
+            text-align: left;
+            font-size: 1.3vw;
+          }
+        }
+
+        & .music_wrap {
+          height: 100px;
+
+          & .visualizer-container {
+            height: 72px;
+            & .visualizer-container__bar {
+              max-height: 72px;
+            }
+          }
+
+          & .btn_wrap {
+            margin-top: 8px;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* 소형 태블릿 */
+@media screen and (max-width: 768px) {
+  #content {
+    & section {
+      & .content_wrap {
+        grid-template-areas:
+          "title title"
+          "jacket list"
+          "music music"
+          "txt txt";
+
+        & h3 {
+          font-size: 5vw;
+        }
+        & .jacket_wrap {
+          width: 200px;
+          &::before {
+            width: 30px;
+            height: 30px;
+          }
+          section:nth-of-type(1) &::before {
+            border: 3px solid var(--album1);
+          }
+          section:nth-of-type(2) &::before {
+            border: 3px solid var(--album2);
+          }
+          section:nth-of-type(3) &::before {
+            border: 3px solid var(--album3);
+          }
+          & img {
+            width: 100%;
+            border: 3px solid #fff;
+          }
+        }
+
+        & .song_list {
+          height: auto;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          position: relative;
+
+          & li {
+            & a {
+              font-size: 0.9rem;
+            }
+          }
+        }
+
+        & .txt_wrap {
+          font-size: 1.7vw;
+
+          & .desc {
+            font-size: 1.7vw;
+            line-height: 1.5;
+          }
+        }
+
+        & .music_wrap {
+          height: auto;
+
+          & .visualizer-container {
+            display: none;
+          }
+
+          & .btn_wrap {
+            & a {
+              width: 60px;
+              font-size: 3vw;
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* 모바일 */
+@media screen and (max-width: 640px) {
+  #menu {
+    display: none;
+  }
+  #content {
+    & section {
+      & .content_wrap {
+        width: 90%;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "title"
+          "gap"
+          "jacket"
+          "txt"
+          "list"
+          "music";
+        row-gap: 20px;
+
+        & h3 {
+          font-size: 6vw;
+        }
+
+        & .jacket_wrap {
+          width: 100%;
+
+          & img {
+            width: 60%;
+          }
+        }
+        & .song_list {
+          padding: 8px 0;
+          & li {
+            & a {
+              justify-content: center;
+              font-size: 1rem;
+              padding: 4px;
+            }
+          }
+        }
+        & .txt_wrap {
+          font-size: 2vw;
+
+          & .genre {
+            margin-bottom: 0;
+          }
+          & .desc {
+            display: none;
+          }
+        }
+
+        & .music_wrap {
+          & a {
+            font-size: 3.5vw;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* 최소 사이즈 */
+@media screen and (max-width: 480px) {
+  #content {
+    & section {
+      & .content_wrap {
+        width: 95%;
+
+        & h3 {
+          font-size: 8vw;
+        }
+
+        & .jacket_wrap {
+          & img {
+            width: 80%;
+          }
+        }
+
+        & .txt_wrap {
+          font-size: 3.5vw;
+        }
+
+        & .music_wrap {
+          & .btn_wrap {
+            margin-top: 0;
+
+            & a {
+              font-size: 6vw;
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
   }
 }

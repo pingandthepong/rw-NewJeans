@@ -1,10 +1,22 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const winW = window.innerWidth;
+
   setBG();
-  setHeight();
   setupMenu();
+
+  if (winW > 1024) {
+    setHeight();
+  }
 });
 
-document.addEventListener("resize", setHeight);
+window.addEventListener("resize", function () {
+  const winW = window.innerWidth;
+
+  if (winH > 1024) {
+    setHeight();
+  }
+});
+
 window.addEventListener("scroll", handleScroll);
 
 // 각 section에 .bg 생성 후 background를 img와 맞추기
@@ -88,30 +100,34 @@ function handleScroll() {
 }
 
 $(document).ready(function () {
-  // section위에서 마우스 휠 이벤트 (delta는 휠의 방향 감지. 올리면 1, 내리면 -1)
-  $("section").on("mousewheel", function (event, delta) {
-    // 마우스 휠을 올렸을때
-    if (delta > 0) {
-      // 변수 prev에 현재 휠을 움직인 section에서 이전 section의 offset().top위치 저장
-      var prev = $(this).prev().offset().top;
-      // 문서 전체를 prev에 저장된 위치로 이동
-      $("html,body").stop().animate({ scrollTop: prev }, 500);
+  const winW = $(window).width();
+  if (winW > 1024) {
+    // section위에서 마우스 휠 이벤트 (delta는 휠의 방향 감지. 올리면 1, 내리면 -1)
+    $("section").on("mousewheel", function (event, delta) {
+      // 마우스 휠을 올렸을때
+      if (delta > 0) {
+        // 변수 prev에 현재 휠을 움직인 section에서 이전 section의 offset().top위치 저장
+        var prev = $(this).prev().offset().top;
+        // 문서 전체를 prev에 저장된 위치로 이동
+        $("html,body").stop().animate({ scrollTop: prev }, 500);
 
-      // wheel 이벤트가 여러 번 계산됨을 방지
-      return false;
+        // wheel 이벤트가 여러 번 계산됨을 방지
+        return false;
 
-      // 마우스 휠을 내렸을때
-    } else if (delta < 0) {
-      // 변수 next에 현재 휠을 움직인 section에서 다음 section의 offset().top위치 저장
-      var next = $(this).next().offset().top;
-      // 문서 전체를 next에 저장된 위치로 이동
-      $("html,body").stop().animate({ scrollTop: next }, 500);
+        // 마우스 휠을 내렸을때
+      } else if (delta < 0) {
+        // 변수 next에 현재 휠을 움직인 section에서 다음 section의 offset().top위치 저장
+        var next = $(this).next().offset().top;
+        // 문서 전체를 next에 저장된 위치로 이동
+        $("html,body").stop().animate({ scrollTop: next }, 500);
 
-      // wheel 이벤트가 여러 번 계산됨을 방지
-      return false;
-    }
-  });
+        // wheel 이벤트가 여러 번 계산됨을 방지
+        return false;
+      }
+    });
+  }
 });
+
 // ==============================
 // // music player
 // const playBtns = document.querySelectorAll(".playBtn");
