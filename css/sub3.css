@@ -291,6 +291,18 @@
       }
     }
   }
+
+  #content {
+    & section {
+      & .content_wrap {
+        & .jacket_wrap {
+          & img {
+            width: 80%;
+          }
+        }
+      }
+    }
+  }
 }
 
 /* 태블릿 */
@@ -306,7 +318,7 @@
   #content {
     & section {
       & .content_wrap {
-        width: 90%;
+        width: 95%;
         grid-template-columns: repeat(2, 1fr);
         grid-template-areas:
           "title title "
@@ -315,8 +327,12 @@
           "list music";
 
         & .jacket_wrap {
+          &::before {
+            width: 40px;
+            height: 40px;
+          }
           & img {
-            width: 330px;
+            width: 50%;
           }
         }
 
@@ -334,13 +350,18 @@
         }
 
         & .txt_wrap {
-          grid-template-columns: repeat(6, 1fr);
+          grid-template-columns: repeat(3, 1fr);
           grid-template-areas:
-            "release genre genre genre genre genre"
-            "desc desc desc desc desc desc";
+            ". release ."
+            ". genre ."
+            "desc desc desc";
+          row-gap: 10px;
+          text-align: center;
+          font-size: 0.85rem;
 
           & .desc {
-            font-size: 1.3vw;
+            font-size: 1rem;
+            text-align: left;
           }
         }
       }
@@ -352,7 +373,7 @@
 @media screen and (max-width: 768px) {
   #content {
     & section {
-      padding: 80px;
+      padding: 50px;
 
       & .content_wrap {
         width: 100%;
@@ -364,10 +385,9 @@
           "txt txt";
 
         & h3 {
-          font-size: 5vw;
+          font-size: 6vw;
         }
         & .jacket_wrap {
-          width: 200px;
           &::before {
             width: 30px;
             height: 30px;
@@ -382,17 +402,13 @@
             border: 3px solid var(--album3);
           }
           & img {
-            width: 100%;
+            width: 80%;
             border: 3px solid #fff;
           }
         }
 
         & .song_list {
           height: auto;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          position: relative;
 
           & li {
             & a {
@@ -401,28 +417,32 @@
           }
         }
 
-        & .txt_wrap {
-          font-size: 1.7vw;
-
-          & .desc {
-            font-size: 1.7vw;
-            line-height: 1.5;
-          }
-        }
-
         & .music_wrap {
-          height: auto;
-
           & .visualizer-container {
             display: none;
           }
 
           & .btn_wrap {
             & a {
-              width: 60px;
               font-size: 3vw;
-              color: #fff;
             }
+          }
+        }
+
+        & .txt_wrap {
+          grid-template-columns: repeat(3, 1fr);
+          grid-template-areas:
+            "release . genre"
+            "desc desc desc";
+
+          & .release {
+            text-align: left;
+          }
+          & .genre {
+            text-align: right;
+          }
+          & .desc {
+            font-size: 0.9rem;
           }
         }
       }
@@ -432,13 +452,11 @@
 
 /* 모바일 */
 @media screen and (max-width: 640px) {
-  #menu {
-    display: none;
-  }
   #content {
     & section {
+      padding: 50px 30px;
+
       & .content_wrap {
-        width: 90%;
         grid-template-columns: 1fr;
         grid-template-areas:
           "title"
@@ -450,40 +468,31 @@
         row-gap: 20px;
 
         & h3 {
-          font-size: 6vw;
+          font-size: 7vw;
         }
 
         & .jacket_wrap {
-          width: 100%;
-
-          & img {
-            width: 60%;
+          &::before {
+            width: 50px;
+            height: 50px;
           }
         }
+
         & .song_list {
-          padding: 8px 0;
+          margin-bottom: 15px;
+
           & li {
             & a {
               justify-content: center;
               font-size: 1rem;
-              padding: 4px;
+              padding: 6px;
             }
           }
         }
         & .txt_wrap {
-          font-size: 2vw;
-
-          & .genre {
-            margin-bottom: 0;
-          }
+          grid-template-areas: "release . genre";
           & .desc {
             display: none;
-          }
-        }
-
-        & .music_wrap {
-          & a {
-            font-size: 3.5vw;
           }
         }
       }
@@ -494,31 +503,23 @@
 /* 최소 사이즈 */
 @media screen and (max-width: 480px) {
   #content {
+    width: 95%;
+
     & section {
+      padding: 50px 20px;
+
       & .content_wrap {
-        width: 95%;
-
-        & h3 {
-          font-size: 8vw;
-        }
-
         & .jacket_wrap {
-          & img {
-            width: 80%;
+          &::before {
+            width: 40px;
+            height: 40px;
           }
-        }
-
-        & .txt_wrap {
-          font-size: 3.5vw;
         }
 
         & .music_wrap {
           & .btn_wrap {
-            margin-top: 0;
-
             & a {
-              font-size: 6vw;
-              color: #fff;
+              font-size: 5vw;
             }
           }
         }
