@@ -21,9 +21,10 @@ function setupMenu() {
       });
       menuItem.classList.add("on");
 
-      // 해당 메뉴로 이동 (section scrollTop - 50으로 이동하기)
-      const nowTop = sections[menuIdx + 1].offsetTop - 50;
-      console.log(nowTop);
+      // 해당 메뉴로 이동
+      const rect = sections[menuIdx].getBoundingClientRect();
+      const nowTop = rect.top + window.pageYOffset - 50;
+
       const start = window.pageYOffset;
       const distance = nowTop - start;
       const duration = 400;
@@ -122,10 +123,13 @@ function setPlayButton() {
   backwards.forEach((backward) => {
     backward.addEventListener("click", function (e) {
       e.preventDefault();
-      audioEl.currentTime = 0;
-      if (status == true) {
-        audioEl.play();
-      }
+
+      audioEls.forEach((audioEl) => {
+        audioEl.currentTime = 0;
+        if (status == true) {
+          audioEl.play();
+        }
+      });
     });
   });
 
@@ -139,11 +143,14 @@ function setPlayButton() {
 function createAudioContext() {
   if (!ctx) {
     ctx = new (window.AudioContext || window.webkitAudioContext)(); // 브라우저 호환성을 위해 수정
-    const audioSource = ctx.createMediaElementSource(audioEl);
-    analyzer = ctx.createAnalyser();
 
-    audioSource.connect(analyzer);
-    audioSource.connect(ctx.destination);
+    audioEls.forEach((audioEl) => {
+      const audioSource = ctx.createMediaElementSource(audioEl);
+      analyzer = ctx.createAnalyser();
+
+      audioSource.connect(analyzer);
+      audioSource.connect(ctx.destination);
+    });
   }
 }
 
@@ -151,28 +158,33 @@ function playAudio() {
   if (!ctx) {
     createAudioContext();
   }
-  audioEl.volume = 0.3;
-  audioEl
-    .play()
-    .then(() => {
-      renderFrame();
-    })
-    .catch((error) => {
-      console.error("Error playing audio:", error);
-    });
+
+  audioEls.forEach((audioEl) => {
+    audioEl.volume = 0.3;
+    audioEl
+      .play()
+      .then(() => {
+        renderFrame();
+      })
+      .catch((error) => {
+        console.error("Error playing audio:", error);
+      });
+  });
 }
 
 function pauseAudio() {
-  audioEl.pause();
-  cancelAnimationFrame(animationId); // 중지 상태에서는 애니메이션도 중지
+  audioEls.forEach((audioEl) => {
+    audioEl.pause();
+    cancelAnimationFrame(animationId); // 중지 상태에서는 애니메이션도 중지
+  });
 }
 
 function renderFrame() {
   const frequencyData = new Uint8Array(analyzer.frequencyBinCount);
   analyzer.getByteFrequencyData(frequencyData);
 
-  for (let i = 0; i < 20; i++) {
-    // 20은 NBR_OF_BARS의 값
+  for (let i = 0; i < 30; i++) {
+    // 30은 NBR_OF_BARS의 값
     const index = (i + 10) * 2;
     const fd = frequencyData[index];
     const bar = document.querySelector("#bar" + i);

@@ -218,6 +218,8 @@
 
         & .visualizer-container {
           width: 100%;
+          /* height 필수 */
+          height: 165px;
           transform: rotate(180deg);
           flex-grow: 1;
           display: flex;
