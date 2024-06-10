@@ -159,7 +159,7 @@
             }
 
             &.playing {
-              font-weight: 600;
+              font-weight: 700;
             }
 
             & span {
@@ -334,10 +334,6 @@
           & img {
             width: 50%;
           }
-        }
-
-        & .song_list {
-          overflow-y: scroll;
         }
 
         & .music_wrap {
