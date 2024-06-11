@@ -7,21 +7,46 @@ window.addEventListener("resize", function () {
   tabletMenu();
 });
 
-// TODO
-$(document).ready(function () {
-  $(window).on("scroll", function () {
-    const ht = $(window).height();
-    // 현재 문서가 스크롤된 거리 저장
-    const scroll = $(window).scrollTop();
+// 스크롤, 리사이즈 시 메뉴 활성화
+let sec1,
+  sec2,
+  sec3 = 0;
 
-    // 메뉴 활성화
-    for (let i = 0; i < 3; i++) {
-      if (scroll >= ht * i && scroll < ht * (i + 1)) {
-        $("#menu li").removeClass("on");
-        $("#menu li").eq(i).addClass("on");
-      }
-    }
-  });
+setTimeout(function () {
+  sec1 = $(".album1").offset().top;
+  sec2 = $(".album2").offset().top;
+  sec3 = $(".album3").offset().top;
+  console.log(sec1, sec2, sec3);
+}, 100);
+
+function menu_on() {
+  let ht = $(window).height();
+  // 현재 문서가 스크롤된 거리 저장
+  let scroll = $(window).scrollTop();
+  let hh = ht / 2;
+
+  if (scroll >= sec1 - hh && scroll < sec2 - hh) {
+    $("#menu li").removeClass("on");
+    $("#menu li").eq(0).addClass("on");
+  } else if (scroll >= sec2 - hh && scroll < sec3 - hh) {
+    $("#menu li").removeClass("on");
+    $("#menu li").eq(1).addClass("on");
+  } else if (scroll >= sec3 - hh) {
+    $("#menu li").removeClass("on");
+    $("#menu li").eq(2).addClass("on");
+  } else {
+    $("#menu li").removeClass("on");
+  }
+}
+
+$(window).on("scroll", function () {
+  menu_on();
+});
+
+$(window).on("resize", function () {
+  sec1 = $(".album1").offset().top;
+  sec2 = $(".album2").offset().top;
+  sec3 = $(".album3").offset().top;
 });
 
 // #menu 클릭시 자동 상하 스크롤 및 활성화 클래스 관리
