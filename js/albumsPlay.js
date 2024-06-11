@@ -149,34 +149,6 @@
 //     nextMusic(1);
 //   });
 
-//   // songTitle.forEach((song, songIdx) => {
-//   //   let albumIndex = 1;
-//   //   let musicIndex = songIdx + 1;
-
-//   //   if (songIdx >= length1) {
-//   //     albumIndex = 2;
-//   //     musicIndex = songIdx - length1 + 1;
-//   //   }
-
-//   //   if (songIdx >= length1 + length2) {
-//   //     albumIndex = 3;
-//   //     musicIndex = songIdx - length1 - length2 + 1;
-//   //   }
-
-//   //   song.addEventListener("click", function (e) {
-//   //     e.preventDefault();
-
-//   //     const isMusicPaused = $(`.album${albumIndex} .music_wrap`).is(".paused");
-
-//   //     if (isMusicPaused) {
-//   //       pauseMusic(musicIndex);
-//   //     } else if (!isMusicPaused) {
-//   //       loadMusic(albumIndex, musicIndex);
-//   //       playMusic(albumIndex);
-//   //     }
-//   //   });
-//   // });
-
 //   $(".album2 .playBtn").click(function (e) {
 //     e.preventDefault();
 //     const isMusicPaused = $(".album2 .music_wrap").is(".paused");
@@ -210,11 +182,12 @@ const audio = document.querySelector(".new_audio");
 let currnum = 1; //현재 선택된 사운드 순서
 let ps = false; //false(stop), true(play)
 
+// .song_list li a 클릭 이벤트 핸들러
 function changeSound(album, track) {
   $(".new_audio").attr("src", `./files/music${album}-${track}.mp3`);
+  audio.play();
   $(".playBtn").attr("title", "일시정지");
   $(".playBtn i").removeClass().addClass("fa-solid fa-pause");
-  audio.play();
   $(`.jacket_wrap:eq(${album - 1})`).addClass("playOn");
   $(".song_list li a").removeClass("playing");
   $(`.song_list:eq(${album - 1}) li:eq(${track - 1}) a`).addClass("playing");
@@ -226,48 +199,93 @@ function changeSound(album, track) {
 $(".playBtn").click(function (e) {
   e.preventDefault();
 
+  let bind = $(this).index('.playBtn');  // 0 1 2
+  //console.log(bind);
+
   if (ps == false) {
     //중지중이면
+
+    // TODO
+    $('.new_audio').attr(
+        "src",
+        `./files/music${bind+1}-${currnum}.mp3`
+      );
+
     audio.play();
-    $(".jacket_wrap").addClass("playOn");
-    $(".playBtn").removeClass().addClass("fa-solid fa-stop");
+    $(this).attr("title", "일시정지");
+    $(this).find("i").removeClass().addClass("fa-solid fa-pause");
+    $(this).parents("section").find(".jacket_wrap").addClass("playOn");
+    $(".song_list li a").removeClass("playing");
+    $(this)
+      .parents("section")
+      .find(`.song_list li:eq(${currnum - 1}) a`)
+      .addClass("playing");
+
     ps = true;
   } else {
     //재생중이면
     audio.pause();
-    $(".jacket_wrap").removeClass("playOn");
+    $(this).attr("title", "");
     $(".playBtn i").removeClass().addClass("fa-solid fa-play");
+    $(".jacket_wrap").removeClass("playOn");
+
     ps = false;
   }
 });
 
-function np_play() {
-  $(".jacket_wrap").addClass("playOn");
-  $(".song_list li a").removeClass("playing");
-  $(".song_list li:eq(" + (currnum - 1) + ") a").addClass("playing");
+function np_play(cnt) {  // 0 1 2
 
-  $(".playBtn i").removeClass().addClass("fa-solid fa-stop");
+  $('section:eq('+ cnt +') .jacket_wrap').addClass("playOn");
+  $('section .song_list li a').removeClass("playing");
+  $('section:eq('+ cnt +')').find('.song_list li:eq(' + (currnum - 1) + ') a').addClass("playing");
+
+  $(".playBtn i").removeClass().addClass("fa-solid fa-pause");
   ps = true;
 
+  // TODO
   $(".new_audio").attr(
     "src",
-    `./files/music${$(".song_list").eq()}-${currnum}.mp3`
+    `./files/music${cnt+1}-${currnum}.mp3`
   );
   audio.play();
 }
 
+let tot = 0;
 $(".forward").click(function (e) {
   e.preventDefault();
 
+  let findx = $(this).index('.forward');  // 0 1 2
+  
+
+  if(findx==0){
+      tot = 4;
+  }else if(findx==1){
+      tot = 2;
+  }else if(findx==2){
+      tot = 6;
+  }
+
   currnum++; // 1 2 3 4
-  if (currnum == 5) currnum = 1;
-  np_play();
+  if (currnum == tot+1) currnum = 1;
+  np_play(findx);
 });
+
+
 
 $(".backward").click(function (e) {
   e.preventDefault();
 
+  let bindx = $(this).index('.backward');  // 0 1 2
+
+  if(bindx==0){
+    tot = 4;
+  }else if(bindx==1){
+    tot = 2;
+  }else if(bindx==2){
+    tot = 6;
+  }
+
   currnum--; // 4 3 2 1
-  if (currnum == 0) currnum = 4;
-  np_play();
+  if (currnum == 0) currnum = tot;
+  np_play(bindx);
 });
