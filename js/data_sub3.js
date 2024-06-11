@@ -16,7 +16,6 @@ setTimeout(function () {
   sec1 = $(".album1").offset().top;
   sec2 = $(".album2").offset().top;
   sec3 = $(".album3").offset().top;
-  console.log(sec1, sec2, sec3);
 }, 100);
 
 function menu_on() {
