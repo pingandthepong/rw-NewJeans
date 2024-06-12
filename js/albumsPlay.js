@@ -180,20 +180,29 @@
 
 const audio = document.querySelector(".new_audio");
 let currnum = 1; //현재 선택된 사운드 순서
-let ps = false; //false(stop), true(play)
+let ps = [false,false,false]; //false(stop), true(play)
 
 // .song_list li a 클릭 이벤트 핸들러
 function changeSound(album, track) {
   $(".new_audio").attr("src", `./files/music${album}-${track}.mp3`);
   audio.play();
-  $(".playBtn").attr("title", "일시정지");
-  $(".playBtn i").removeClass().addClass("fa-solid fa-pause");
+
+  $("section .playBtn").attr("title", "재생");
+  $('section:eq('+ (album - 1) +') .playBtn').attr("title", "일시정지");
+
+  $(`.jacket_wrap`).removeClass("playOn");
   $(`.jacket_wrap:eq(${album - 1})`).addClass("playOn");
+
   $(".song_list li a").removeClass("playing");
   $(`.song_list:eq(${album - 1}) li:eq(${track - 1}) a`).addClass("playing");
 
+  $("section .playBtn i").removeClass().addClass("fa-solid fa-play");
+  $('section:eq('+ (album - 1) +') .playBtn i').removeClass().addClass("fa-solid fa-pause");
+
+
   currnum = track;
-  ps = true;
+  for(let i=0; i<ps.length; i++){ps[i]=false;}
+  ps[album-1] = true;
 }
 
 $(".playBtn").click(function (e) {
@@ -202,8 +211,15 @@ $(".playBtn").click(function (e) {
   let bind = $(this).index('.playBtn');  // 0 1 2
   //console.log(bind);
 
-  if (ps == false) {
+  
+
+  if (ps[bind] == false) {
     //중지중이면
+
+    $("section .playBtn").attr("title", "재생");
+    $(`.jacket_wrap`).removeClass("playOn");
+    $(".song_list li a").removeClass("playing");
+    $("section .playBtn i").removeClass().addClass("fa-solid fa-play");
 
     // TODO
     $('.new_audio').attr(
@@ -221,26 +237,30 @@ $(".playBtn").click(function (e) {
       .find(`.song_list li:eq(${currnum - 1}) a`)
       .addClass("playing");
 
-    ps = true;
-  } else {
+    for(let i=0; i<ps.length; i++){ps[i]=false;}
+    ps[bind] = true;
+  } else if(ps[bind] == true) {
     //재생중이면
     audio.pause();
     $(this).attr("title", "");
     $(".playBtn i").removeClass().addClass("fa-solid fa-play");
     $(".jacket_wrap").removeClass("playOn");
 
-    ps = false;
+    ps[bind] = false;
   }
 });
 
 function np_play(cnt) {  // 0 1 2
-
+  $('section .jacket_wrap').removeClass("playOn");
   $('section:eq('+ cnt +') .jacket_wrap').addClass("playOn");
   $('section .song_list li a').removeClass("playing");
   $('section:eq('+ cnt +')').find('.song_list li:eq(' + (currnum - 1) + ') a').addClass("playing");
 
-  $(".playBtn i").removeClass().addClass("fa-solid fa-pause");
-  ps = true;
+  $(".playBtn i").removeClass().addClass("fa-solid fa-play");
+  $('section:eq('+ cnt +') .playBtn i').removeClass().addClass("fa-solid fa-pause");
+
+  for(let i=0; i<ps.length; i++){ps[i]=false;}
+  ps[cnt] = true;
 
   // TODO
   $(".new_audio").attr(
