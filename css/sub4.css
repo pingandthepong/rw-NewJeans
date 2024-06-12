@@ -1,0 +1,120 @@
+#content {
+  & .schedule {
+    padding: 100px 0;
+    margin-bottom: 100px;
+
+    & .calendar_wrap {
+      width: 80%;
+      background: #fff;
+      height: 1000px;
+      margin: 0 auto 60px;
+      padding: 100px 0 50px;
+      border-radius: 30px;
+      position: relative;
+
+      #calendar-month-title {
+        text-align: center;
+        font-size: 3vw;
+        margin-bottom: 100px;
+      }
+
+      #calendar {
+        width: 90%;
+        height: 850px;
+        margin: 0 auto;
+
+        & .toastui-calendar-template-monthDayName {
+          font-family: var(--contentFont);
+          font-weight: 900;
+          font-size: 2vw;
+          text-align: center;
+          margin-top: -20px;
+        }
+        & .toastui-calendar-grid-cell-date {
+          & .toastui-calendar-weekday-grid-date-decorator {
+            width: auto;
+            height: auto;
+            line-height: 1;
+            padding: 10px;
+            background-color: var(--main);
+          }
+          & .toastui-calendar-weekday-grid-date {
+            font-family: var(--contentFont);
+            font-weight: 900;
+            font-size: 1.2vw;
+          }
+        }
+        & .toastui-calendar-weekday-event-title {
+          font-family: var(--contentFont);
+          font-weight: 600;
+        }
+      }
+
+      & .button_wrap {
+        width: 108%;
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 100;
+
+        button {
+          background: none;
+          font-size: 3vw;
+          padding: 0 10px;
+          color: var(--main);
+          width: 5vw;
+          height: 5vw;
+          background: #f8f8f8;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+        }
+      }
+    }
+
+    & .today_wrap {
+      width: 80%;
+      margin: 0 auto;
+
+      & .today {
+        margin-bottom: 20px;
+        font-family: var(--contentFont);
+        font-weight: 600;
+        font-size: 2vw;
+        color: #fff;
+      }
+
+      & .today_schedule {
+        background: #fff;
+        border-radius: 30px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 40px;
+        font-family: var(--contentFont);
+        font-size: 2vw;
+
+        &::before {
+          content: "";
+          display: block;
+          width: 50px;
+          height: 50px;
+          background: url("../images/mainimages/section/schedule_icon.png")
+            no-repeat center;
+          background-size: cover;
+        }
+      }
+    }
+  }
+}
+
+#footerArea {
+  &::before {
+    display: none;
+  }
+}
