@@ -6,7 +6,6 @@
     & .calendar_wrap {
       width: 80%;
       background: #fff;
-      height: 1000px;
       margin: 0 auto 60px;
       padding: 100px 0 50px;
       border-radius: 30px;
@@ -116,5 +115,189 @@
 #footerArea {
   &::before {
     display: none;
+  }
+}
+
+/* 태블릿 */
+@media screen and (max-width: 1024px) {
+  #content {
+    & .schedule {
+      padding: 50px 0;
+
+      & .calendar_wrap {
+        width: 90%;
+
+        #calendar-month-title {
+          font-size: 5vw;
+        }
+
+        #calendar {
+          width: 90%;
+
+          & .toastui-calendar-grid-cell-date {
+            & .toastui-calendar-weekday-grid-date {
+              font-size: 1.5vw;
+            }
+          }
+        }
+
+        & .button_wrap {
+          width: 105%;
+        }
+      }
+
+      & .today_wrap {
+        width: 90%;
+
+        & .today {
+          font-size: 2.5vw;
+        }
+
+        & .today_schedule {
+          font-size: 2.5vw;
+        }
+      }
+    }
+  }
+}
+/* 소형 태블릿 */
+@media screen and (max-width: 768px) {
+  #content {
+    & .schedule {
+      & .calendar_wrap {
+        width: 95%;
+
+        #calendar-month-title {
+          font-size: 6vw;
+        }
+
+        & #calendar {
+          width: 95%;
+
+          & .toastui-calendar-template-monthDayName {
+            font-size: 2.5vw;
+          }
+          & .toastui-calendar-grid-cell-date {
+            & .toastui-calendar-weekday-grid-date {
+              font-size: 2vw;
+            }
+          }
+        }
+      }
+
+      & .today_wrap {
+        width: 95%;
+
+        & .today {
+          font-size: 3.5vw;
+          text-align: center;
+          text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+        }
+        & .today_schedule {
+          font-size: 2.8vw;
+        }
+      }
+    }
+  }
+}
+/* 모바일 */
+@media screen and (max-width: 640px) {
+  #content {
+    & .schedule {
+      & .calendar_wrap {
+        width: 100%;
+        border-radius: 0;
+
+        #calendar-month-title {
+          font-size: 6.5vw;
+          margin-bottom: 80px;
+        }
+
+        & .button_wrap {
+          width: 90%;
+          top: 8.5%;
+          transform: translate(-50%, 0);
+
+          button {
+            width: 8vw;
+            height: 8vw;
+            font-size: 5vw;
+          }
+        }
+
+        #calendar {
+          width: 100%;
+
+          & .toastui-calendar-template-monthDayName {
+            font-size: 3.5vw;
+            font-weight: 500;
+          }
+          & .toastui-calendar-grid-cell-date {
+            & .toastui-calendar-weekday-grid-date {
+              font-size: 3vw;
+              font-weight: 400;
+            }
+          }
+        }
+      }
+
+      & .today_wrap {
+        & .today {
+          font-size: 5vw;
+        }
+        & .today_schedule {
+          font-size: 3.5vw;
+        }
+      }
+    }
+  }
+}
+/* 최소 사이즈 */
+@media screen and (max-width: 480px) {
+  #content {
+    & .schedule {
+      margin-bottom: 50px;
+
+      & .calendar_wrap {
+        padding: 80px 0 0;
+
+        #calendar-month-title {
+          font-size: 10vw;
+        }
+
+        #calendar {
+          & .toastui-calendar-template-monthDayName {
+            font-size: 5vw;
+          }
+          & .toastui-calendar-grid-cell-date {
+            & .toastui-calendar-weekday-grid-date {
+              font-size: 4.5vw;
+            }
+          }
+        }
+
+        & .button_wrap {
+          top: 7.5%;
+          button {
+            width: 10vw;
+            height: 10vw;
+            font-size: 6vw;
+          }
+        }
+      }
+
+      & .today_wrap {
+        width: 100%;
+        & .today {
+          font-size: 8vw;
+        }
+        & .today_schedule {
+          font-size: 6vw;
+          border-radius: 0;
+          gap: 8px;
+          padding: 30px;
+        }
+      }
+    }
   }
 }
