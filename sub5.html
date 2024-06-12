@@ -10,9 +10,18 @@
     <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" />
     <link rel="apple-touch-icon-precomposed" href="./app_icon.png" />
     <link rel="apple-touch-startup-image" href="./startup.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" />
+    <link rel="apple-touch-icon-precomposed" href="./app_icon.png" />
+    <link rel="apple-touch-startup-image" href="./startup.png" />
 
     <!-- TODO: 기타 css 연결 파일 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap"
+      rel="stylesheet" />
     <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/sub_common.css" />
     <link rel="stylesheet" href="./css/sub5.css" />
 
     <!-- DONE: prefix -->
@@ -31,26 +40,59 @@
     <div id="wrap">
       <div class="videoBox">
         <img src="./images/sub5/sub5_big.jpg" id="imgBG" />
-        <a class="down" href="#">SCROLL DOWN</a>
+        <a class="down" href="#"></a>
       </div>
 
       <header id="headerArea">
         <div class="headerInner">
-          <h1><a href="./index.html">로고</a></h1>
+          <div class="header_top">
+            <h1><a href="./index.html">NewJeans 로고</a></h1>
+            <a href="#" class="menuOpen menu_ham">
+              <span>메뉴열기</span>
+            </a>
+          </div>
           <nav id="gnb">
             <h2 class="hidden">네비게이션영역</h2>
-            <ul>
+            <ul class="mainMenu">
               <li>
-                <h3><a href="./sub1.html?num=1">menu01</a></h3>
+                <h3>
+                  <a href="./sub1.html?num=1"
+                    ><span class="menu_icon"></span
+                    ><span class="txt">member</span></a
+                  >
+                </h3>
               </li>
               <li>
-                <h3><a href="./sub2.html?num=2">menu02</a></h3>
+                <h3>
+                  <a href="./sub2.html?num=2"
+                    ><span class="menu_icon"></span
+                    ><span class="txt">new</span></a
+                  >
+                </h3>
               </li>
               <li>
-                <h3><a href="./sub3.html?num=3">menu03</a></h3>
+                <h3>
+                  <a href="./sub3.html?num=3"
+                    ><span class="menu_icon"></span
+                    ><span class="txt">albums</span></a
+                  >
+                </h3>
               </li>
               <li>
-                <h3><a href="./sub4.html?num=4">menu04</a></h3>
+                <h3>
+                  <a href="./sub4.html?num=4"
+                    ><span class="menu_icon"></span
+                    ><span class="txt">schedule</span></a
+                  >
+                </h3>
+              </li>
+              <li>
+                <h3>
+                  <a href="./sub5.html?num=5"
+                    ><span class="menu_icon"></span
+                    ><span class="txt">gallery</span></a
+                  >
+                </h3>
               </li>
             </ul>
           </nav>
@@ -58,18 +100,68 @@
       </header>
 
       <article id="content">
-        <h2>CHARACTER</h2>
+        <h2 class="subTitle">gallery</h2>
         <section>
-          <h3>내용 콘텐츠1 제목</h3>
+          <h3 class="hidden"></h3>
         </section>
       </article>
 
-      <footer id="footerArea">푸터 콘텐츠</footer>
+      <footer id="footerArea">
+        <a href="#" class="move_top">
+          <img src="./images/mainimages/move_top.png" alt="" />
+          <span class="hidden">TOP 버튼</span>
+        </a>
+        <div class="footer__container">
+          <a href="#" class="logo_footer">newjeans</a>
+          <div class="footer_txt_wrap">
+            <ul class="sns">
+              <li>
+                <a href="#" target="_blank" title="뉴진스 유튜브 새창열림"
+                  ><span class="hidden">youtube</span
+                  ><i class="fa-brands fa-youtube" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#" target="_blank" title="뉴진스 X 새창열림"
+                  ><span class="hidden">X(구 트위터)</span
+                  ><i class="fa-brands fab fa-twitter" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#" target="_blank" title="뉴진스 인스타그램 새창열림"
+                  ><span class="hidden">인스타그램</span
+                  ><i
+                    class="fa-brands fab fab fa-instagram"
+                    aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#" target="_blank" title="뉴진스 페이스북 새창열림"
+                  ><span class="hidden">페이스북</span
+                  ><i
+                    class="fa-brands fab fa-facebook-square"
+                    aria-hidden="true"></i>
+                </a>
+              </li>
+            </ul>
+            <address>
+              <p>
+                ADOR Co., Ltd. 16th floor, Hangang-daero 42, Yongsan-gu, Seoul,
+                Republic of Korea
+              </p>
+            </address>
+          </div>
+        </div>
+      </footer>
     </div>
 
     <script src="./js/jquery-1.12.4.min.js"></script>
     <script src="./js/jquery-migrate-1.4.1.min.js"></script>
-    <script src="./js/swiper.min.js"></script>
+    <script src="./js/headerSub.js"></script>
     <script src="./js/sub_img_back.js"></script>
+    <script src="./js/menu_ham.js"></script>
+    <script src="./js/footer.js"></script>
+    <script src="./js/cursor.js"></script>
+    <script src="./js/subTitle.js"></script>
   </body>
 </html>
