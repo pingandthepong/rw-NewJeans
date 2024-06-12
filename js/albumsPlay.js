@@ -250,7 +250,17 @@ $(".playBtn").click(function (e) {
   }
 });
 
+
+let cur = 0; //전에 클릭한 index
+
 function np_play(cnt) {  // 0 1 2
+  
+  //console.log(cnt);
+  if(cnt!=cur){
+    currnum=1;
+  }
+  cur = cnt; //  0
+   
   $('section .jacket_wrap').removeClass("playOn");
   $('section:eq('+ cnt +') .jacket_wrap').addClass("playOn");
   $('section .song_list li a').removeClass("playing");
