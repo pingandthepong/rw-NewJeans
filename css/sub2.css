@@ -76,6 +76,7 @@
           gap: 10px;
 
           button {
+            height: 40px;
             flex-shrink: 0;
             background: none;
             cursor: pointer;
@@ -93,9 +94,19 @@
 
             &#fullPlay {
               background: var(--main);
+              display: flex;
+              align-items: center;
+              line-height: 1;
 
               &::before {
-                content: url("../images/sub2/btn_play.png");
+                content: "\f04b";
+                font-family: "Font Awesome 5 Free";
+                font-weight: 900;
+                font-size: 16px;
+                width: 1rem;
+              }
+              &.pauseBtn::before {
+                content: "\f04c";
               }
             }
             &#share {
