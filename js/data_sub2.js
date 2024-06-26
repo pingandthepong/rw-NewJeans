@@ -1,4 +1,4 @@
-// .btn_like 클릭 시 .checked
+// DONE: .btn_like 클릭 시 .checked
 const btnLikes = document.querySelectorAll(".btn_like");
 
 btnLikes.forEach(function (btnLike) {
@@ -7,13 +7,13 @@ btnLikes.forEach(function (btnLike) {
   });
 });
 
-// .more 클릭 시 더보기
-const more = document.querySelector(".more");
-more.addEventListener("click", function (e) {
-  e.preventDefault();
-});
+// // TODO: .more 클릭 시 더보기
+// const more = document.querySelector(".more");
+// more.addEventListener("click", function (e) {
+//   e.preventDefault();
+// });
 
-// .list li mouseenter시 .title.playBtn
+// DONE: .list li mouseenter시 .title.playBtn
 const listLis = document.querySelectorAll(".list li");
 const titles = document.querySelectorAll(".list .title");
 
@@ -34,7 +34,7 @@ listLis.forEach(function (listLi, idx) {
   });
 });
 
-// max-width: 768px; 이하에서는 전체재생 => 전체, 공유로 텍스트
+// DONE: max-width: 768px; 이하에서는 전체재생 => 전체, 공유로 텍스트
 function btnText() {
   const fullPlay = document.querySelector("#fullPlay");
   const share = document.querySelector("#share");
@@ -55,3 +55,30 @@ btnText();
 window.addEventListener("resize", () => {
   btnText();
 });
+
+// DONE: playlist 기능
+const audio = document.querySelector(".new_audio");
+let currentAudioIdx = 0; // 현재 재생 중인 오디오 인덱스
+
+// DONE: 곡마다 재생
+titles.forEach((title, titleIdx) => {
+  title.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    // 같은 제목을 다시 클릭한 경우
+    if (titleIdx === currentAudioIdx && !audio.paused) {
+      audio.pause();
+      titles[titleIdx].classList.remove("pauseBtn");
+      titles[titleIdx].classList.add("playBtn");
+    } else {
+      // 제목 클릭한 경우 (같은제목X)
+      audio.src = `./files/new${titleIdx + 1}.mp3`;
+      audio.play();
+      titles[titleIdx].classList.add("pauseBtn");
+    }
+
+    currentAudioIdx = titleIdx;
+  });
+});
+
+// TODO: 전체 재생

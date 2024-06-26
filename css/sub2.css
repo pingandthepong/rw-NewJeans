@@ -179,6 +179,11 @@
             font-family: "Font Awesome 5 Free";
             font-weight: 900;
           }
+          &.pauseBtn::before {
+            content: "\f04c";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+          }
 
           & strong {
             font-weight: 400;
