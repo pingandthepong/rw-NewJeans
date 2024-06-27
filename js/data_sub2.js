@@ -75,8 +75,6 @@ titles.forEach((title, titleIdx) => {
       titles.forEach((t) => {
         t.classList.remove("pauseBtn");
       });
-
-      console.log(titles[titleIdx]);
     } else {
       console.log("이벤트 발생2");
 
@@ -91,40 +89,50 @@ titles.forEach((title, titleIdx) => {
       });
       // 자기 자신만 pauseBtn
       titles[titleIdx].classList.add("pauseBtn");
-
-      console.log(title);
     }
 
     currentAudioIdx = titleIdx;
   });
 });
 
-// // TODO: 전체 재생
-// fullPlay.addEventListener("click", function () {
-//   // 첫 곡 재생을 위해 초기화
-//   currentAudioIdx = 0;
+// TODO: 전체 재생
+fullPlay.addEventListener("click", function () {
+  console.log("전체재생 이벤트 발생");
 
-//   // 재생이 끝나면 다음 곡 재생
-//   function playNext() {
-//     // 현재 재생 중인 곡인 경우
-//     if (!audio.paused) {
-//       // 다음 곡의 인덱스를 증가시킵니다.
-//       currentAudioIdx++;
-//       // 모든 곡이 재생된 경우 처음 곡으로 되돌아갑니다.
-//       if (currentAudioIdx >= titles.length) {
-//         currentAudioIdx = 0;
-//       }
-//       audio.src = `./files/new${currentAudioIdx + 1}.mp3`;
-//       audio.play();
-//       // 현재 타이틀에 'pauseBtn' 클래스를 추가하고 이전 타이틀의 클래스를 제거합니다.
-//       titles.forEach((title) => title.classList.remove("pauseBtn"));
-//       titles[currentAudioIdx].classList.add("pauseBtn");
-//     }
-//   }
+  // 첫 곡 재생을 위해 초기화
+  currentAudioIdx = 0;
 
-//   // 첫 곡 재생
-//   playNext();
+  if (!audio.paused) {
+    // 재생 중이라면
+    audio.pause();
+    this.classList.remove("pauseBtn");
+    titles.forEach((t) => t.classList.remove("pauseBtn"));
+  } else {
+    // 정지 상태라면
+    audio.play();
+    this.classList.add("pauseBtn");
+    titles.forEach((t) => t.classList.remove("pauseBtn"));
+    titles[currentAudioIdx].classList.add("pauseBtn");
+  }
+});
 
-//   // 재생이 끝날 때마다 다음 곡을 재생합니다.
-//   audio.addEventListener("ended", playNext);
-// });
+// 재생이 끝날 때마다 다음 곡 재생
+audio.addEventListener("ended", function () {
+  console.log("audio.ended 이벤트 발생");
+
+  // 곡이 끝났다면
+  currentAudioIdx++;
+  console.log(currentAudioIdx);
+
+  if (currentAudioIdx < titles.length) {
+    audio.src = `./files/new${currentAudioIdx + 1}.mp3`;
+    audio.play();
+    titles.forEach((t) => t.classList.remove("pauseBtn"));
+    titles[currentAudioIdx].classList.add("pauseBtn");
+  } else {
+    fullPlay.classList.remove("pauseBtn");
+    titles.forEach((t) => t.classList.remove("pauseBtn"));
+    audio.pause();
+    currentAudioIdx = 0;
+  }
+});
