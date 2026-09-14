@@ -1,5 +1,5 @@
 function startCountdown() {
-  const targetDate = new Date("2025-05-24T13:00:00").getTime();
+  const targetDate = new Date("2028-05-24T13:00:00").getTime();
   const countdownEl = document.querySelector(".countdown");
 
   function updateCountdown() {
@@ -14,7 +14,7 @@ function startCountdown() {
 
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
     const hours = Math.floor(
-      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
     );
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
