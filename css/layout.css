@@ -6,8 +6,9 @@
   --font: #010101;
   --titleFont: "aAbstractGroovy", sans-serif;
   --contentFont: "Noto Sans KR", sans-serif;
-  --shiny: 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 30px #ffd700,
-    0 0 40px #ff8c00, 0 0 50px #ff8c00, 0 0 60px #ff4500, 0 0 70px #ff4500;
+  --shiny:
+    0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 30px #ffd700, 0 0 40px #ff8c00,
+    0 0 50px #ff8c00, 0 0 60px #ff4500, 0 0 70px #ff4500;
 }
 
 /* 와이드 pc  */
@@ -58,6 +59,8 @@
     background-size: cover;
 
     .member_list {
+      max-width: 84%;
+      margin: 0 auto;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -141,7 +144,8 @@
       & .title {
         font-size: 10vw;
         letter-spacing: 0.2rem;
-        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5),
+        text-shadow:
+          1px 1px 5px rgba(0, 0, 0, 0.5),
           0 0 100px rgb(255, 255, 255);
       }
       & .date {
@@ -336,7 +340,9 @@
           &:hover {
             transform: scale(1.1);
             outline: 5px solid #fff;
-            box-shadow: 0 0 50px #fff, 0 0 100px var(--point2);
+            box-shadow:
+              0 0 50px #fff,
+              0 0 100px var(--point2);
           }
 
           & img {
@@ -375,7 +381,8 @@
         box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.3);
       }
       & li {
-        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5),
+        box-shadow:
+          2px 2px 5px rgba(0, 0, 0, 0.5),
           -4px -4px 3px rgba(255, 255, 255, 0.5);
         position: relative;
         overflow: hidden;
@@ -587,7 +594,8 @@
         background: url("../images/mainimages/gallery/gallery_0.jpg") no-repeat;
         background-size: cover;
         background-position: center 10%;
-        box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.6),
+        box-shadow:
+          3px 3px 5px 0 rgba(0, 0, 0, 0.6),
           -3px -3px 5px rgba(255, 255, 255, 0.6);
         transition: all 0.25s;
         position: relative;
@@ -678,7 +686,8 @@
         & .title {
           font-size: 14vw;
           letter-spacing: 0.2rem;
-          text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5),
+          text-shadow:
+            1px 1px 5px rgba(0, 0, 0, 0.5),
             0 0 100px rgb(255, 255, 255);
         }
         & .date {
@@ -768,7 +777,8 @@
           box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.3);
         }
         & li {
-          box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5),
+          box-shadow:
+            2px 2px 5px rgba(0, 0, 0, 0.5),
             -4px -4px 3px rgba(255, 255, 255, 0.5);
           position: relative;
           overflow: hidden;
