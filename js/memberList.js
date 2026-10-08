@@ -1,4 +1,4 @@
-const imgWraps = document.querySelectorAll(".img_wrap");
+const imgWraps = document.querySelectorAll(".member_list .img_wrap");
 let clickStatus = true; // true(커진 상태), false(원래 상태)
 
 imgWraps.forEach(function (imgWrap) {

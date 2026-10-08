@@ -86,7 +86,6 @@
           will-change: transform;
           position: relative;
           border-radius: 30px;
-          overflow: hidden;
 
           &::before {
             content: "";
